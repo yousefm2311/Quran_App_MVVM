@@ -1,0 +1,69 @@
+name: quran_app
+description: A new Flutter project.
+
+publish_to: 'none'
+
+version: 1.0.0+1
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  get: ^4.6.5
+  staggered_grid_view_flutter: ^0.0.4
+  flutter_custom_clippers: ^2.1.0
+  shared_preferences: ^2.1.2
+  share_plus: ^7.0.2
+  dio: ^5.2.1+1
+  audioplayers: ^4.1.0
+  audio_video_progress_bar: ^1.0.1
+  connectivity_plus: ^4.0.1
+  readmore: ^2.2.0
+  fluttertoast: ^8.2.2
+  step_progress_indicator: ^1.0.2
+  geolocator: ^9.0.2
+  permission_handler: ^10.4.3
+  intl: ^0.18.1
+  flutter_local_notifications: ^15.1.0+1
+  timezone: ^0.9.2
+  workmanager: ^0.5.1
+  # sqflite: ^2.3.0
+  flutter_qiblah: ^2.2.0
+  retry: ^3.1.2
+  lottie: ^2.6.0
+  smooth_page_indicator: ^1.1.0
+  adhan: ^2.0.0+1
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/images/json/
+    - assets/name_quran.json
+    - assets/quran_en.json
+    - assets/ar_muyassar.json
+    - assets/azkar.json
+    - assets/Names_Of_Allah.json
+    - assets/sections/hadith.json
+  fonts:
+      - family: IconBroken
+        fonts:
+          - asset: assets/fonts/icons.ttf
+      - family: Kitab
+        fonts:
+          - asset: assets/fonts/kitab.ttf
+      - family: Quran
+        fonts:
+          - asset: assets/fonts/Al-QuranAlKareem.ttf
+      - family: Rubik
+        fonts:
+          - asset: assets/fonts/BalooBhaijaan2-VariableFont_wght.ttf
+      - family: uthman
+        fonts:
+          - asset: assets/fonts/UthmanicHafs1.otf
+
