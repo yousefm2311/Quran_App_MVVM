@@ -1,11 +1,10 @@
 // ignore_for_file: unused_local_variable, unused_element, deprecated_member_use
 import 'dart:math';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
 import 'package:quran_app/core/util/constant/static_vars.dart';
-import 'package:quran_app/features/notifications/views/notify_view.dart';
+import 'package:quran_app/core/util/routes/routes.dart';
 import 'package:timezone/data/latest_all.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
 
@@ -53,45 +52,49 @@ class NotifyHelper {
     NotificationDetails notificationDetails =
         NotificationDetails(android: androidNotificationDetails);
     await flutterLocalNotificationsPlugin.show(
-      rndmIndex,
+      20,
       'فَذَكِّرْ',
       StaticVars().smallDo3a2[rndmIndex],
       notificationDetails,
-      payload: 'Default_Sound',
+      payload: AppRoutes.notify,
     );
   }
 
-  void scheduleDailyTenAMNotification() async {
+  void scheduleAzkar({dateTime}) async {
     int rndmIndex = Random().nextInt(StaticVars().smallDo3a2.length - 1);
+    String timeString = '10:00';
+    final timeParts = timeString.split(':');
+    final timeOfDay = TimeOfDay(
+        hour: int.parse(timeParts[0]), minute: int.parse(timeParts[1]));
     var androidPlatformChannelSpecifics = AndroidNotificationDetails(
-        'daily_reminder_channel_id' 'daily_reminder_channel_name',
-        'daily_reminder_description',
-        importance: Importance.max,
-        priority: Priority.high,
+        '1' 'test', 'daily_reminder',
         sound:
             RawResourceAndroidNotificationSound(soundAzkar_2.split('.').first),
+        importance: Importance.max,
+        priority: Priority.high,
         showWhen: false);
     var platformChannelSpecifics =
         NotificationDetails(android: androidPlatformChannelSpecifics);
     await flutterLocalNotificationsPlugin.zonedSchedule(
-        0,
+        1,
         'أذكار الصباح',
         StaticVars().smallDo3a2[rndmIndex],
-        _nextInstanceOfTenAM(),
+        _nextTest(dateTime: dateTime ?? timeOfDay),
         platformChannelSpecifics,
+        payload: AppRoutes.azkar,
         androidAllowWhileIdle: true,
         uiLocalNotificationDateInterpretation:
             UILocalNotificationDateInterpretation.absoluteTime,
         matchDateTimeComponents: DateTimeComponents.time);
   }
 
-  tz.TZDateTime _nextInstanceOfTenAM() {
+  tz.TZDateTime _nextTest({required TimeOfDay dateTime}) {
     final tz.TZDateTime now = tz.TZDateTime.now(tz.local);
-    tz.TZDateTime scheduledDate =
-        tz.TZDateTime(tz.local, now.year, now.month, now.day, 10, 00);
+    tz.TZDateTime scheduledDate = tz.TZDateTime(
+        tz.local, now.year, now.month, now.day, dateTime.hour, dateTime.minute);
     if (scheduledDate.isBefore(now)) {
-      scheduledDate =
-          tz.TZDateTime(tz.local, now.year, now.month, now.day + 1, 10, 00);
+      scheduledDate = tz.TZDateTime(tz.local, now.year, now.month, now.day + 1,
+          dateTime.hour, dateTime.minute);
     }
     return scheduledDate;
   }
@@ -108,7 +111,7 @@ class NotifyHelper {
         NotificationDetails(android: androidPlatformChannelSpecifics);
     // الفجر
     await flutterLocalNotificationsPlugin.zonedSchedule(
-        0,
+        2,
         'وقت الصلاة',
         'حان الآن وقت صلاة الفجر',
         _nextInstanceOfPrayerTime(prayerTimes.fajr),
@@ -116,48 +119,53 @@ class NotifyHelper {
         androidAllowWhileIdle: true,
         uiLocalNotificationDateInterpretation:
             UILocalNotificationDateInterpretation.absoluteTime,
+        payload: AppRoutes.notify,
         matchDateTimeComponents: DateTimeComponents.time);
     // الظهر
     await flutterLocalNotificationsPlugin.zonedSchedule(
-        1,
+        3,
         'وقت الصلاة',
         'حان الآن وقت صلاة الظهر',
         _nextInstanceOfPrayerTime(prayerTimes.dhuhr),
         platformChannelSpecifics,
         androidAllowWhileIdle: true,
+        payload: AppRoutes.notify,
         uiLocalNotificationDateInterpretation:
             UILocalNotificationDateInterpretation.absoluteTime,
         matchDateTimeComponents: DateTimeComponents.time);
     // العصر
     await flutterLocalNotificationsPlugin.zonedSchedule(
-        2,
+        4,
         'وقت الصلاة',
         'حان الآن وقت صلاة العصر',
         _nextInstanceOfPrayerTime(prayerTimes.asr),
         platformChannelSpecifics,
+        payload: AppRoutes.notify,
         androidAllowWhileIdle: true,
         uiLocalNotificationDateInterpretation:
             UILocalNotificationDateInterpretation.absoluteTime,
         matchDateTimeComponents: DateTimeComponents.time);
     // المغرب
     await flutterLocalNotificationsPlugin.zonedSchedule(
-        3,
+        5,
         'وقت الصلاة',
         'حان الآن وقت صلاة المغرب',
         _nextInstanceOfPrayerTime(prayerTimes.maghrib),
         platformChannelSpecifics,
+        payload: AppRoutes.notify,
         androidAllowWhileIdle: true,
         uiLocalNotificationDateInterpretation:
             UILocalNotificationDateInterpretation.absoluteTime,
         matchDateTimeComponents: DateTimeComponents.time);
     // العشاء
     await flutterLocalNotificationsPlugin.zonedSchedule(
-        4,
+        6,
         'وقت الصلاة',
         'حان الآن وقت صلاة العشاء',
         _nextInstanceOfPrayerTime(prayerTimes.isha),
         platformChannelSpecifics,
         androidAllowWhileIdle: true,
+        payload: AppRoutes.notify,
         uiLocalNotificationDateInterpretation:
             UILocalNotificationDateInterpretation.absoluteTime,
         matchDateTimeComponents: DateTimeComponents.time);
@@ -180,9 +188,7 @@ class NotifyHelper {
     if (notificationResponse.payload != null) {
       debugPrint('notification payload: $payload');
     }
-    await Get.to(NotifyView(
-      payload: payload,
-    ));
+    await Get.toNamed(payload!);
   }
 
   void onDidReceiveLocalNotification(
@@ -200,4 +206,38 @@ class NotifyHelper {
           sound: true,
         );
   }
+
+  //   void scheduleDailyTenAMNotification() async {
+  //   int rndmIndex = Random().nextInt(StaticVars().smallDo3a2.length - 1);
+  //   var androidPlatformChannelSpecifics = AndroidNotificationDetails(
+  //       'daily_reminder_channel_id' 'daily_reminder_channel_name',
+  //       'daily_reminder_description',
+  //       importance: Importance.max,
+  //       priority: Priority.high,
+  //       sound:
+  //           RawResourceAndroidNotificationSound(soundAzkar_2.split('.').first),
+  //       showWhen: false);
+  //   var platformChannelSpecifics =
+  //       NotificationDetails(android: androidPlatformChannelSpecifics);
+  //   await flutterLocalNotificationsPlugin.zonedSchedule(
+  //       10,
+  //       'أذكار الصباح',
+  //       StaticVars().smallDo3a2[rndmIndex],
+  //       _nextInstanceOfTenAM(),
+  //       platformChannelSpecifics,
+  //       androidAllowWhileIdle: true,
+  //       uiLocalNotificationDateInterpretation:
+  //           UILocalNotificationDateInterpretation.absoluteTime,
+  //       matchDateTimeComponents: DateTimeComponents.time);
+  // }
+  // tz.TZDateTime _nextInstanceOfTenAM() {
+  //   final tz.TZDateTime now = tz.TZDateTime.now(tz.local);
+  //   tz.TZDateTime scheduledDate =
+  //       tz.TZDateTime(tz.local, now.year, now.month, now.day, 10, 00);
+  //   if (scheduledDate.isBefore(now)) {
+  //     scheduledDate =
+  //         tz.TZDateTime(tz.local, now.year, now.month, now.day + 1, 10, 00);
+  //   }
+  //   return scheduledDate;
+  // }
 }

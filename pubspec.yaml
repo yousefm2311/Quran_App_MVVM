@@ -30,10 +30,10 @@ dependencies:
   workmanager: ^0.5.1
   # sqflite: ^2.3.0
   flutter_qiblah: ^2.2.0
-  retry: ^3.1.2
   lottie: ^2.6.0
   smooth_page_indicator: ^1.1.0
   adhan: ^2.0.0+1
+  hijri: ^3.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

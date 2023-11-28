@@ -26,7 +26,6 @@ class LightTheme {
       ),
       bodyLarge: TextStyle(
           fontSize: 18, color: Colors.black, fontWeight: FontWeight.bold),
-      
       bodySmall: TextStyle(
         fontSize: 14,
         color: Colors.grey,

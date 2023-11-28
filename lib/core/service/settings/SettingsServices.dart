@@ -25,9 +25,8 @@ class SettingsServices extends GetxService {
     Adhan_Dio_Helper.init();
     Workmanager().initialize(callbackDispatcher);
     NotifyHelper().initializeNotification();
-    NotifyHelper().scheduleDailyTenAMNotification();
-
-
+    NotifyHelper().scheduleAzkar();
+    
     return this;
   }
 }

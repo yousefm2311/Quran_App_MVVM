@@ -23,7 +23,7 @@ class ContainerLastReadView extends StatelessWidget {
             BoxShadow(
               color: Colors.grey.shade400,
               blurRadius: 20,
-            )
+            ),
           ],
           color: Colors.green,
           gradient: const LinearGradient(

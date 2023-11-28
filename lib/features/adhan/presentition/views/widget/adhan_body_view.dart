@@ -16,19 +16,21 @@ class AdhanBodyView extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               const SizedBox(height: 20.0),
-              const AdhanContainer(),
+              AdhanContainer(
+                prayerTimes: controller.prayerTimes,
+              ),
               const SizedBox(height: 15.0),
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.0),
                 child: Row(
                   children: [
                     Icon(
-                      IconBroken.Calendar,
+                      IconBroken.Time_Circle,
                       size: 35,
                     ),
                     Spacer(),
                     Icon(
-                      IconBroken.Time_Circle,
+                      IconBroken.Calendar,
                       size: 35,
                     ),
                   ],

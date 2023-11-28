@@ -15,4 +15,5 @@ class AssetsData {
   static const notification = 'assets/images/json/noti.json';
   static const json_4 = 'assets/images/json/4.json';
   static const json_5 = 'assets/images/json/5.json';
+  static const settings = 'assets/images/json/settings.json';
 }

@@ -14,27 +14,27 @@ class AdhanBodyListView extends StatelessWidget {
         children: [
           PrayerTimeItem(
               time: formateDate(controller.prayerTimes.fajr),
-              title: 'Fajr',
+              title: 'الفجر',
               isCurrent: _isCurrentTime(
                   controller.prayerTimes.fajr, controller.prayerTimes.sunrise)),
           PrayerTimeItem(
               time: formateDate(controller.prayerTimes.dhuhr),
-              title: 'Dhuhr',
+              title: 'الظهر',
               isCurrent: _isCurrentTime(
                   controller.prayerTimes.dhuhr, controller.prayerTimes.asr)),
           PrayerTimeItem(
               time: formateDate(controller.prayerTimes.asr),
-              title: 'Asr',
+              title: 'العصر',
               isCurrent: _isCurrentTime(
                   controller.prayerTimes.asr, controller.prayerTimes.maghrib)),
           PrayerTimeItem(
               time: formateDate(controller.prayerTimes.maghrib),
-              title: 'Maghrib',
+              title: 'المغرب',
               isCurrent: _isCurrentTime(
                   controller.prayerTimes.maghrib, controller.prayerTimes.isha)),
           PrayerTimeItem(
               time: formateDate(controller.prayerTimes.isha),
-              title: 'Isha',
+              title: 'العشاء',
               isCurrent: _isCurrentTime(
                   controller.prayerTimes.isha, controller.prayerTimes.fajr)),
         ],
@@ -48,11 +48,12 @@ class AdhanBodyListView extends StatelessWidget {
 
   bool _isCurrentTime(DateTime prayerTime, DateTime nextPrayerTime) {
     final now = DateTime.now();
-    final adjustedPrayerTime = prayerTime.add(const Duration(minutes: 1));
-    if (now.isAfter(adjustedPrayerTime) && now.isBefore(nextPrayerTime)) {
+    final adjustedPrayerTime = prayerTime;
+    final adjustedNextPrayerTime = nextPrayerTime;
+    if (now.isAfter(adjustedPrayerTime) &&
+        now.isBefore(adjustedNextPrayerTime)) {
       return true;
-    } else if (now.isAfter(
-            controller.prayerTimes.isha.add(const Duration(minutes: 1))) ||
+    } else if (now.isAfter(controller.prayerTimes.isha) ||
         now.isBefore(controller.prayerTimes.fajr)) {
       return true;
     }

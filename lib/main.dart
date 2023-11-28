@@ -38,18 +38,21 @@ class _MyAppState extends State<MyApp> {
     super.initState();
     setupWorkManager();
   }
+
   SettingsServices settingsServices = Get.put(SettingsServices());
   Future<void> setupWorkManager() async {
     bool? isWorkManagerRunning =
         settingsServices.sharedPref!.getBool('isWorkManager');
-    if (isWorkManagerRunning == null || !isWorkManagerRunning) {
-      Workmanager().registerPeriodicTask(
-        '9',
-        'scheduler notifications',
-        existingWorkPolicy: ExistingWorkPolicy.replace,
-        frequency: const Duration(minutes: 10),
-      );
-      await settingsServices.sharedPref!.setBool('isWorkManager', true);
+    if (settingsServices.sharedPref!.getBool('stop_noti') == true) {
+      if (isWorkManagerRunning == null || !isWorkManagerRunning) {
+        Workmanager().registerPeriodicTask(
+          '9',
+          'scheduler notifications',
+          existingWorkPolicy: ExistingWorkPolicy.replace,
+          frequency: const Duration(minutes: 10),
+        );
+        await settingsServices.sharedPref!.setBool('isWorkManager', true);
+      }
     }
   }
 

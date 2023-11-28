@@ -13,15 +13,16 @@ class PrayerTimeItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
       child: Container(
+        padding: const EdgeInsets.all(2),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
             color: isCurrent == false
                 ? AppColors.kbackGroundColor
                 : AppColors.kPrimaryColor),
         child: ListTile(
-          title: Text(
+          trailing: Text(
             title,
             style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                   fontFamily: 'Rubik',
@@ -30,7 +31,7 @@ class PrayerTimeItem extends StatelessWidget {
                   fontSize: 20,
                 ),
           ),
-          trailing: Text(
+          title: Text(
             time,
             style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                   fontFamily: 'Rubik',

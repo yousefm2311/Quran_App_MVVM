@@ -118,7 +118,7 @@ class AppRoutes {
     ),
     GetPage(
       name: settings,
-      page: () => const SettingsView(),
+      page: () =>  SettingsView(),
       transition: Transition.cupertino,
       transitionDuration: kTransitionDuration,
     ),

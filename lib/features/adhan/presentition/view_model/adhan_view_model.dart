@@ -1,4 +1,6 @@
 // ignore_for_file: unrelated_type_equality_checks, prefer_typing_uninitialized_variables
+import 'dart:async';
+
 import 'package:adhan/adhan.dart';
 import 'package:flutter/foundation.dart';
 import 'package:geolocator/geolocator.dart';
@@ -146,10 +148,8 @@ class AdhanViewModel extends GetxController {
   //     }
   //   }
   // }
-
   // PageController pageController =
   //     PageController(initialPage: DateTime.now().day - 1);
-
   // String convertTo12HourFormat(String time24) {
   //   if (time24.isEmpty) {
   //     return 'Invalid time format';

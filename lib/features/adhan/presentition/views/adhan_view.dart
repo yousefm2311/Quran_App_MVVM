@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:quran_app/core/util/color.dart';
 import 'package:quran_app/core/util/widgets/custom_appBar.dart';
 import 'package:quran_app/core/util/widgets/custom_back_button.dart';
 import 'package:quran_app/core/util/widgets/my_text.dart';
@@ -32,21 +33,19 @@ class AdhanView extends GetWidget<AdhanViewModel> {
             controller.requestLocationPermission();
           }
           return controller.prayerTimes != null
-              ? controller.isLoading.value
-                  ? const Center(
-                      child: CupertinoActivityIndicator(color: Colors.black))
-                  : const AdhanBodyView()
+              ? const AdhanBodyView()
               : Center(
                   child: MaterialButton(
+                  color: AppColors.kPrimaryColor,
                   onPressed: () {
                     controller.requestLocationPermission();
                   },
                   child: Text(
-                    'No Data available',
+                    'Get Data',
                     style: Theme.of(context)
                         .textTheme
                         .bodyMedium!
-                        .copyWith(fontSize: 20, color: Colors.black87),
+                        .copyWith(fontSize: 20, color: Colors.white),
                   ),
                 ));
         },
