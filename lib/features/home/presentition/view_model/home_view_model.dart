@@ -4,15 +4,13 @@ import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:quran_app/core/service/settings/SettingsServices.dart';
 import 'package:quran_app/core/util/assets.dart';
-import 'package:quran_app/features/adhan/presentition/view_model/adhan_view_model.dart';
 import 'package:quran_app/core/util/routes/routes.dart';
 
 class HomeViewModel extends GetxController {
   HomeViewModel() {
-    requestNotificationPermission().then((value) {
-      requestLocationPermission();
-      getLastRead();
-    });
+    requestLocationPermission();
+    requestNotificationPermission();
+    getLastRead();
   }
   Future<void> requestLocationPermission() async {
     try {
@@ -47,7 +45,6 @@ class HomeViewModel extends GetxController {
     }
   }
 
-  AdhanViewModel adhanViewModel = Get.put(AdhanViewModel());
   Future<void> requestNotificationPermission() async {
     try {
       final PermissionStatus statusNotify =

@@ -26,7 +26,8 @@ class SettingsServices extends GetxService {
     Workmanager().initialize(callbackDispatcher);
     NotifyHelper().initializeNotification();
     NotifyHelper().scheduleAzkar();
-    
+    sharedPref!.setBool('enable', true);
+    sharedPref!.setBool('stop_noti', true);
     return this;
   }
 }

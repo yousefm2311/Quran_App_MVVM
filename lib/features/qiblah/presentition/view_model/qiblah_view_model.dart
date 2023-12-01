@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:quran_app/core/util/color.dart';
 
 class QiblahViewModel extends GetxController {
   RxBool isDone = false.obs;
@@ -19,7 +20,7 @@ class QiblahViewModel extends GetxController {
         if (kDebugMode) {
           print('Location permission denied');
         }
-        if (statusLocation.isDenied) {
+        if (statusLocation.isGranted) {
           isDone.value = true;
           update();
         }
@@ -34,7 +35,7 @@ class QiblahViewModel extends GetxController {
           builder: (BuildContext context) {
             return AlertDialog(
               title: Text(
-                'Permission Request',
+                'الموقع',
                 style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                       fontFamily: 'Rubik',
                       color: Colors.black,
@@ -43,7 +44,7 @@ class QiblahViewModel extends GetxController {
                     ),
               ),
               content: Text(
-                'Please grant access to your Location ',
+                'الرجاء اعطاء اذن الوصول الي الموقع',
                 style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                       fontFamily: 'Rubik',
                       color: Colors.black,
@@ -54,7 +55,7 @@ class QiblahViewModel extends GetxController {
               actions: <Widget>[
                 MaterialButton(
                   child: Text(
-                    'Cancel',
+                    'اغلاق',
                     style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                           fontFamily: 'Rubik',
                           color: Colors.black,
@@ -67,11 +68,12 @@ class QiblahViewModel extends GetxController {
                   },
                 ),
                 MaterialButton(
+                  color: AppColors.kPrimaryColor,
                   child: Text(
-                    'Open Settings',
+                    'الاعدادات',
                     style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                           fontFamily: 'Rubik',
-                          color: Colors.black,
+                          color: Colors.white,
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
                         ),

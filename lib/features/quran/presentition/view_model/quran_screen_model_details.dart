@@ -24,64 +24,64 @@ class QuranScreenViewModel extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    subscription = connectivity.onConnectivityChanged.listen((_) {
-      updateConnectionState();
-      update();
-    });
+    // subscription = connectivity.onConnectivityChanged.listen((_) {
+    //   updateConnectionState();
+    //   update();
+    // });
   }
 
   final Connectivity connectivity = Connectivity();
 
-  updateConnectionState() async {
-    var connectivityResult = await Connectivity().checkConnectivity();
-    if (connectivityResult == ConnectivityResult.none) {
-      Get.rawSnackbar(
-        messageText: const Text(
-          "PLEASE CONNECT TO INTERNET",
-          style: TextStyle(fontSize: 14, color: Colors.white),
-        ),
-        isDismissible: false,
-        duration: const Duration(
-          seconds: 5,
-        ),
-        backgroundColor: Colors.red[400]!,
-        icon: const Icon(
-          Icons.wifi_off,
-          color: Colors.white,
-          size: 35,
-        ),
-        margin: EdgeInsets.zero,
-        snackStyle: SnackStyle.GROUNDED,
-      );
-      isOnline.value = false;
-      update();
-    } else {
-      if (Get.isSnackbarOpen) {
-        Get.closeCurrentSnackbar();
-      }
-      Get.rawSnackbar(
-        messageText: const Text(
-          "CONNECT TO INTERNET",
-          style: TextStyle(fontSize: 14, color: Colors.white),
-        ),
-        isDismissible: false,
-        duration: const Duration(
-          seconds: 2,
-        ),
-        backgroundColor: Colors.black45,
-        icon: const Icon(
-          Icons.wifi,
-          color: Colors.white,
-          size: 35,
-        ),
-        margin: EdgeInsets.zero,
-        snackStyle: SnackStyle.GROUNDED,
-      );
-      isOnline.value = true;
-      // getQuranAudio();
-    }
-    update();
-  }
+  // updateConnectionState() async {
+  //   var connectivityResult = await Connectivity().checkConnectivity();
+  //   if (connectivityResult == ConnectivityResult.none) {
+  //     Get.rawSnackbar(
+  //       messageText: const Text(
+  //         "PLEASE CONNECT TO INTERNET",
+  //         style: TextStyle(fontSize: 14, color: Colors.white),
+  //       ),
+  //       isDismissible: false,
+  //       duration: const Duration(
+  //         seconds: 5,
+  //       ),
+  //       backgroundColor: Colors.red[400]!,
+  //       icon: const Icon(
+  //         Icons.wifi_off,
+  //         color: Colors.white,
+  //         size: 35,
+  //       ),
+  //       margin: EdgeInsets.zero,
+  //       snackStyle: SnackStyle.GROUNDED,
+  //     );
+  //     isOnline.value = false;
+  //     update();
+  //   } else {
+  //     if (Get.isSnackbarOpen) {
+  //       Get.closeCurrentSnackbar();
+  //     }
+  //     Get.rawSnackbar(
+  //       messageText: const Text(
+  //         "CONNECT TO INTERNET",
+  //         style: TextStyle(fontSize: 14, color: Colors.white),
+  //       ),
+  //       isDismissible: false,
+  //       duration: const Duration(
+  //         seconds: 2,
+  //       ),
+  //       backgroundColor: Colors.black45,
+  //       icon: const Icon(
+  //         Icons.wifi,
+  //         color: Colors.white,
+  //         size: 35,
+  //       ),
+  //       margin: EdgeInsets.zero,
+  //       snackStyle: SnackStyle.GROUNDED,
+  //     );
+  //     isOnline.value = true;
+  //     // getQuranAudio();
+  //   }
+  //   update();
+  // }
 
   Future<void> readJson() async {
     try {

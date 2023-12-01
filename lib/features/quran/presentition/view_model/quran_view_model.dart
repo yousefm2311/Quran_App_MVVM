@@ -24,19 +24,19 @@ class QuranViewModel extends GetxController {
     update();
   }
 
-  List<NameModel> searchResult = [];
-  onSearchTextChange(String text) async {
-    searchResult.clear();
-    if (text.isEmpty) {
-      update();
-      return;
-    }
-    for (var element in nameModel) {
-      if (element.name!.contains(text.capitalizeFirst!) ||
-          element.transliteration!.contains(text.capitalizeFirst!)) {
-        searchResult.add(element);
-        update();
-      }
-    }
-  }
+  // List<NameModel> searchResult = [];
+  // onSearchTextChange(String text) async {
+  //   searchResult.clear();
+  //   if (text.isEmpty) {
+  //     update();
+  //     return;
+  //   }
+  //   for (var element in nameModel) {
+  //     if (element.name!.contains(text.capitalizeFirst!) ||
+  //         element.transliteration!.contains(text.capitalizeFirst!)) {
+  //       searchResult.add(element);
+  //       update();
+  //     }
+  //   }
+  // }
 }

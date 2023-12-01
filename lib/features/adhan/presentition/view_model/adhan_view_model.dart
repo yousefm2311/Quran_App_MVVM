@@ -3,23 +3,79 @@ import 'dart:async';
 
 import 'package:adhan/adhan.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:quran_app/core/service/database/database_helper.dart';
 import 'package:quran_app/core/service/settings/SettingsServices.dart';
 import 'package:quran_app/core/service/settings/notifications_services.dart';
+import 'package:quran_app/core/util/color.dart';
 import 'package:quran_app/features/quran/presentition/view_model/quran_screen_model_details.dart';
 
 class AdhanViewModel extends GetxController {
   AdhanViewModel() {
     requestLocationPermission().then((value) => getCurrentLocation());
+    requestNotificationPermission();
   }
   double? latitude, longitude;
   RxBool isLoading = false.obs;
   SettingsServices settingsServices = Get.put(SettingsServices());
   LocalStorageAdhanData localData = Get.put(LocalStorageAdhanData());
   QuranScreenViewModel quranScreenViewModel = Get.put(QuranScreenViewModel());
+
+  Future<void> requestNotificationPermission() async {
+    try {
+      final PermissionStatus statusNotify =
+          await Permission.notification.request();
+      if (statusNotify.isGranted) {
+      } else if (statusNotify.isDenied) {
+        if (kDebugMode) {
+          print('Location permission denied');
+        }
+      } else if (statusNotify.isPermanentlyDenied) {
+        if (kDebugMode) {
+          print('Location permission permanently denied');
+        }
+        Get.defaultDialog(
+          confirm: Container(
+            decoration: BoxDecoration(
+                color: AppColors.kPrimaryColor,
+                borderRadius: BorderRadius.circular(6)),
+            child: MaterialButton(
+              onPressed: () {
+                openAppSettings().whenComplete(() {
+                  Get.back();
+                });
+              },
+              child: const Text('الاعدادات',
+                  style: TextStyle(color: Colors.white)),
+            ),
+          ),
+          cancel: Container(
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(6)),
+            child: MaterialButton(
+              onPressed: () {
+                Get.back();
+              },
+              child:
+                  const Text('اغلاق', style: TextStyle(color: Colors.black87)),
+            ),
+          ),
+          middleText: 'الرجاء اعطاء اذن الاشعارات',
+          middleTextStyle: const TextStyle(color: Colors.black54),
+          titlePadding: const EdgeInsets.all(20),
+          title: 'الاشعارات',
+          titleStyle: const TextStyle(color: Colors.black87),
+        );
+      }
+    } catch (e) {
+      if (kDebugMode) {
+        print(e.toString());
+      }
+    }
+  }
+
   Future<void> requestLocationPermission() async {
     try {
       final PermissionStatus statusLocation =
@@ -39,9 +95,38 @@ class AdhanViewModel extends GetxController {
         if (kDebugMode) {
           print('Location permission permanently denied');
         }
-        openAppSettings().whenComplete(() {
-          Get.back();
-        });
+        Get.defaultDialog(
+          confirm: Container(
+            decoration: BoxDecoration(
+                color: AppColors.kPrimaryColor,
+                borderRadius: BorderRadius.circular(6)),
+            child: MaterialButton(
+              onPressed: () {
+                openAppSettings().whenComplete(() {
+                  Get.back();
+                });
+              },
+              child: const Text('الاعدادات',
+                  style: TextStyle(color: Colors.white)),
+            ),
+          ),
+          cancel: Container(
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(6)),
+            child: MaterialButton(
+              onPressed: () {
+                Get.back();
+                Get.back();
+              },
+              child:
+                  const Text('اغلاق', style: TextStyle(color: Colors.black87)),
+            ),
+          ),
+          middleText: 'الرجاء اعطاء اذن الوصول الي الموقع',
+          middleTextStyle: const TextStyle(color: Colors.black54),
+          titlePadding: const EdgeInsets.all(20),
+          title: 'الموقع',
+          titleStyle: const TextStyle(color: Colors.black87),
+        );
       }
     } catch (e) {
       if (kDebugMode) {

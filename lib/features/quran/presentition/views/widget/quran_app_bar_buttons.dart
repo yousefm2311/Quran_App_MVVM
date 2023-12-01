@@ -6,7 +6,10 @@ import 'package:quran_app/core/util/widgets/custom_toast.dart';
 import 'package:quran_app/features/quran/presentition/view_model/quran_screen_model_details.dart';
 
 class QuranAppBarButtons extends StatelessWidget {
-  const QuranAppBarButtons({super.key, required this.sharedPref, required this.quranScreenViewModel});
+  const QuranAppBarButtons(
+      {super.key,
+      required this.sharedPref,
+      required this.quranScreenViewModel});
   final SettingsServices sharedPref;
   final QuranScreenViewModel quranScreenViewModel;
 
@@ -101,7 +104,14 @@ class QuranAppBarButtons extends StatelessWidget {
     cont.getCurrentMarkQuran();
     if (quranScreenViewModel.currentSave == false) {
       Get.defaultDialog(
-              title: '', middleText: 'للحفظ مره اخري اضغط علي نفس الزر')
+        
+              titleStyle: const TextStyle(color: Colors.black87),
+              title: '',
+              content: const Text(
+                'للحفظ مره اخري اضغط علي نفس الزر',
+                style: TextStyle(color: Colors.black87),
+              ),
+              middleText: '')
           .then((value) {
         sharedPref.sharedPref!.setBool('Save', true);
       });

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hijri/hijri_calendar.dart';
-import 'package:intl/intl.dart';
 import 'package:lottie/lottie.dart';
 import 'package:quran_app/core/util/assets.dart';
 import 'package:quran_app/core/util/widgets/custom_appBar.dart';
@@ -15,13 +13,9 @@ class SettingsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    HijriCalendar.setLocal('ar');
-    final hijri = HijriCalendar.now();
-    var day = DateTime.now();
-    var format = DateFormat('EEE , d MMM yyyy');
-    var formatted = format.format(day);
     return Scaffold(
       appBar: CustomAppBar(
+        centerTitle: true,
         loading: const CustomBackButton(),
         title: Text(
           'الاعدادات',
@@ -44,18 +38,6 @@ class SettingsView extends StatelessWidget {
                   SectionAzkarNotification(controller: controller),
                   const SizedBox(height: 20.0),
                   SectionStopNotification(controller: controller),
-                  Text(
-                    hijri.hDay.toString(),
-                    style: const TextStyle(color: Colors.black),
-                  ),
-                  Text(
-                    hijri.longMonthName.toString(),
-                    style: const TextStyle(color: Colors.black),
-                  ),
-                  Text(
-                    formatted.toString(),
-                    style: const TextStyle(color: Colors.black),
-                  ),
                 ],
               );
             }),
