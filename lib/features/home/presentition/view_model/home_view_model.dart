@@ -14,14 +14,17 @@ class HomeViewModel extends GetxController {
   }
   Future<void> requestLocationPermission() async {
     try {
-      final PermissionStatus statusLocation =
-          await Permission.location.request();
-      if (statusLocation.isGranted) {
-      } else if (statusLocation.isDenied) {
+      Map<Permission, PermissionStatus> statuses = await [
+        Permission.location,
+        Permission.locationAlways,
+        Permission.locationWhenInUse,
+      ].request();
+      if (statuses[Permission.location]!.isGranted) {
+      } else if (statuses[Permission.location]!.isDenied) {
         if (kDebugMode) {
           print('Location permission denied');
         }
-      } else if (statusLocation.isPermanentlyDenied) {
+      } else if (statuses[Permission.location]!.isPermanentlyDenied) {
         if (kDebugMode) {
           print('Location permission permanently denied');
         }

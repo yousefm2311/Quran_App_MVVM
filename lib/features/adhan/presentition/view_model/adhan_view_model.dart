@@ -78,20 +78,23 @@ class AdhanViewModel extends GetxController {
 
   Future<void> requestLocationPermission() async {
     try {
-      final PermissionStatus statusLocation =
-          await Permission.location.request();
-      if (statusLocation.isGranted) {
+      Map<Permission, PermissionStatus> statuses = await [
+        Permission.location,
+        Permission.locationAlways,
+        Permission.locationWhenInUse,
+      ].request();
+      if (statuses[Permission.location]!.isGranted) {
         getCurrentLocation().then((value) => adhan());
         update();
         if (kDebugMode) {
           print('Location permission granted');
         }
-      } else if (statusLocation.isDenied) {
+      } else if (statuses[Permission.location]!.isDenied) {
         if (kDebugMode) {
           print('Location permission denied');
         }
         Get.back();
-      } else if (statusLocation.isPermanentlyDenied) {
+      } else if (statuses[Permission.location]!.isPermanentlyDenied) {
         if (kDebugMode) {
           print('Location permission permanently denied');
         }

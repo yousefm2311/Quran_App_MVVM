@@ -21,17 +21,7 @@ class QuranScreenViewModel extends GetxController {
   List<AyahModel> ayah_Model = [];
   RxBool isOnline = false.obs;
   late StreamSubscription subscription;
-  @override
-  void onInit() {
-    super.onInit();
-    // subscription = connectivity.onConnectivityChanged.listen((_) {
-    //   updateConnectionState();
-    //   update();
-    // });
-  }
-
   final Connectivity connectivity = Connectivity();
-
   // updateConnectionState() async {
   //   var connectivityResult = await Connectivity().checkConnectivity();
   //   if (connectivityResult == ConnectivityResult.none) {

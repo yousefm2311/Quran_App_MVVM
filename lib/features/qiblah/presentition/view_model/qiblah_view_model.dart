@@ -11,22 +11,25 @@ class QiblahViewModel extends GetxController {
 
   Future<void> requestLocationPermission(context) async {
     try {
-      final PermissionStatus statusLocation =
-          await Permission.location.request();
-      if (statusLocation.isGranted) {
+      Map<Permission, PermissionStatus> statuses = await [
+        Permission.location,
+        Permission.locationAlways,
+        Permission.locationWhenInUse,
+      ].request();
+      if (statuses[Permission.location]!.isGranted) {
         isDone.value = true;
         update();
-      } else if (statusLocation.isDenied) {
+      } else if (statuses[Permission.location]!.isDenied) {
         if (kDebugMode) {
           print('Location permission denied');
         }
-        if (statusLocation.isGranted) {
+        if (statuses[Permission.location]!.isGranted) {
           isDone.value = true;
           update();
         }
         isDone.value = false;
         update();
-      } else if (statusLocation.isPermanentlyDenied) {
+      } else if (statuses[Permission.location]!.isPermanentlyDenied) {
         if (kDebugMode) {
           print('Location permission permanently denied');
         }
