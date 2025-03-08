@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quran_app/core/util/color.dart';
@@ -11,8 +10,10 @@ import 'package:quran_app/features/adhan/presentition/views/widget/adhan_body_vi
 class AdhanView extends GetWidget<AdhanViewModel> {
   const AdhanView({super.key});
 
+
   @override
   Widget build(BuildContext context) {
+    controller.requestLocationPermission();
     return Scaffold(
       appBar: CustomAppBar(
         loading: const CustomBackButton(),
@@ -29,9 +30,7 @@ class AdhanView extends GetWidget<AdhanViewModel> {
       ),
       body: GetBuilder<AdhanViewModel>(
         builder: (controller) {
-          if (controller.prayerTimes == null) {
-            controller.requestLocationPermission();
-          }
+          if (controller.prayerTimes == null) {}
           return controller.prayerTimes != null
               ? const AdhanBodyView()
               : Center(

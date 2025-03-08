@@ -13,13 +13,16 @@ import 'package:quran_app/features/home/presentition/views/widget/horizontal_lis
 import 'package:quran_app/features/home/presentition/view_model/home_view_model.dart';
 import 'package:quran_app/core/util/icon_broken.dart';
 
+
 class HomeView extends GetWidget<HomeViewModel> {
-  HomeView({super.key});
+
+
   SettingsServices settingsServices = Get.put(SettingsServices());
   AdhanViewModel adhanViewModel = Get.put(AdhanViewModel());
+
+  HomeView({super.key});
   @override
   Widget build(BuildContext context) {
-    adhanViewModel.requestLocationPermission();
     return Scaffold(
       backgroundColor: AppColors.kbackGroundColor,
       appBar: CustomAppBar(
@@ -52,7 +55,7 @@ class HomeView extends GetWidget<HomeViewModel> {
             children: [
               HorizontalListView(controller: controller),
               ContainerLastReadView(settingsServices: settingsServices),
-              HomeGridView(controller: controller)
+              HomeGridView(controller: controller),
             ],
           ),
         ),

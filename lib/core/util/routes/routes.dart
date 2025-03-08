@@ -81,7 +81,7 @@ class AppRoutes {
     ),
     GetPage(
       name: adhan,
-      page: () => const AdhanView(),
+      page: () =>  AdhanView(),
       transition: Transition.cupertino,
       transitionDuration: kTransitionDuration,
     ),

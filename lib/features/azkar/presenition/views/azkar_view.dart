@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quran_app/core/service/settings/SettingsServices.dart';
+
 import 'package:quran_app/core/util/widgets/custom_appBar.dart';
 import 'package:quran_app/core/util/widgets/custom_back_button.dart';
 import 'package:quran_app/core/util/widgets/my_text.dart';

@@ -5,7 +5,7 @@ import 'package:quran_app/core/service/settings/notifications_services.dart';
 import 'package:quran_app/core/util/color.dart';
 import 'package:quran_app/core/util/widgets/custom_toast.dart';
 import 'package:quran_app/features/settings/presentition/view_model/settins_view_model.dart';
-import 'package:workmanager/workmanager.dart';
+// import 'package:workmanager/workmanager.dart';
 
 class SectionStopNotification extends StatelessWidget {
   const SectionStopNotification({super.key, required this.controller});
@@ -20,7 +20,7 @@ class SectionStopNotification extends StatelessWidget {
       child: Row(
         children: [
           CupertinoSwitch(
-            activeColor: AppColors.kPrimaryColor,
+            activeTrackColor: AppColors.kPrimaryColor,
             value:
                 controller.settingsServices.sharedPref!.getBool('stop_noti') ??
                     true,
@@ -45,12 +45,12 @@ class SectionStopNotification extends StatelessWidget {
       controller.toggleSwitchStopNoti(value);
       if (controller.settingsServices.sharedPref!.getBool('stop_noti') ==
           true) {
-        Workmanager().registerPeriodicTask(
-          '9',
-          'scheduler notifications',
-          existingWorkPolicy: ExistingWorkPolicy.replace,
-          frequency: const Duration(minutes: 10),
-        );
+        // Workmanager().registerPeriodicTask(
+        //   '9',
+        //   'scheduler notifications',
+        //   existingWorkPolicy: ExistingWorkPolicy.replace,
+        //   frequency: const Duration(minutes: 10),
+        // );
         defaultToast(text: 'تم تفعيل اشعارات الاذكار ');
       } else {
         defaultToast(text: 'تم ايقاف اشعارات الاذكار ');

@@ -1,35 +1,69 @@
 import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_qiblah/flutter_qiblah.dart';
+import 'package:flutter_compass/flutter_compass.dart';
 import 'package:quran_app/core/util/assets.dart';
-import 'package:quran_app/features/qiblah/presentition/views/qiblah_view.dart';
 
-class QiblahStreamBuilder extends StatelessWidget {
-  const QiblahStreamBuilder({super.key});
+class QiblahStreamBuilder extends StatefulWidget {
+  final AnimationController animationController;
+  final double begin;
+  final double qiblaDirection;
 
+  const QiblahStreamBuilder({
+    super.key,
+    required this.animationController,
+    required this.begin,
+    required this.qiblaDirection,
+  });
 
+  @override
+  State<QiblahStreamBuilder> createState() => _QiblahStreamBuilderState();
+}
+
+class _QiblahStreamBuilderState extends State<QiblahStreamBuilder> {
+  late Animation<double> animation;
+  double begin = 0.0;
+
+  @override
+  void initState() {
+    super.initState();
+    animation =
+        Tween(begin: begin, end: begin).animate(widget.animationController);
+  }
 
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
-      stream: FlutterQiblah.qiblahStream,
+      stream: FlutterCompass.events,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(child: CupertinoActivityIndicator());
         }
-        final qiblahDirection = snapshot.data;
+
+        if (snapshot.hasError) {
+          return Center(child: Text('Error: ${snapshot.error}'));
+        }
+
+        final compassEvent = snapshot.data;
+        if (compassEvent == null) {
+          return const Center(child: Text('Unable to fetch Qiblah direction'));
+        }
+
+        // Update the Tween value
         animation = Tween(
-                begin: begin, end: (qiblahDirection!.qiblah * (pi / 180) * -1))
-            .animate(animationController!);
-        begin = (qiblahDirection.qiblah * (pi / 180) * -1);
-        animationController!.forward(from: 0);
+          begin: begin,
+          end: (compassEvent.heading! * (pi / 180) * -1),
+        ).animate(widget.animationController);
+
+        begin = (compassEvent.heading! * (pi / 180) * -1);
+        widget.animationController.forward(from: 0);
+
         return Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                '${qiblahDirection.direction.toInt()} °',
+                '${compassEvent.heading!.toInt()}°',
                 style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                       fontFamily: 'Rubik',
                       color: Colors.black,
@@ -41,11 +75,14 @@ class QiblahStreamBuilder extends StatelessWidget {
               SizedBox(
                 height: 300,
                 child: AnimatedBuilder(
-                  animation: animation!,
-                  builder: (context, child) => Transform.rotate(
-                    angle: animation!.value,
-                    child: Image.asset(AssetsData.qiblahImage),
-                  ),
+                  animation: animation,
+                  builder: (context, child) {
+                    debugPrint('Animation Value: ${animation.value}');
+                    return Transform.rotate(
+                      angle: animation.value,
+                      child: Image.asset(AssetsData.qiblahImage),
+                    );
+                  },
                 ),
               ),
               SizedBox(height: MediaQuery.sizeOf(context).height * 0.2),

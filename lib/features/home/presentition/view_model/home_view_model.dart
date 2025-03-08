@@ -1,39 +1,42 @@
-import 'package:flutter/foundation.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:home_widget/home_widget.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:quran_app/core/service/settings/SettingsServices.dart';
 import 'package:quran_app/core/util/assets.dart';
+import 'package:quran_app/core/util/constant/static_vars.dart';
 import 'package:quran_app/core/util/routes/routes.dart';
 
 class HomeViewModel extends GetxController {
   HomeViewModel() {
-    requestLocationPermission();
-    requestNotificationPermission();
+    requestPermissions();
     getLastRead();
   }
-  Future<void> requestLocationPermission() async {
-    try {
-      Map<Permission, PermissionStatus> statuses = await [
-        Permission.location,
-        Permission.locationAlways,
-        Permission.locationWhenInUse,
-      ].request();
-      if (statuses[Permission.location]!.isGranted) {
-      } else if (statuses[Permission.location]!.isDenied) {
-        if (kDebugMode) {
-          print('Location permission denied');
-        }
-      } else if (statuses[Permission.location]!.isPermanentlyDenied) {
-        if (kDebugMode) {
-          print('Location permission permanently denied');
-        }
-        openAppSettings();
+  Future<void> requestPermissions() async {
+    var status = await Permission.location.status;
+    if (!status.isGranted) {
+      status = await Permission.location.request();
+    }
+    if (status.isGranted) {
+      debugPrint('Location permission granted');
+    } else if (status.isDenied) {
+      debugPrint('Location permission denied');
+    } else if (status.isPermanentlyDenied) {
+      debugPrint('Location permission permanently denied');
+      await openAppSettings();
+    }
+    var notificationStatus = await Permission.notification.status;
+    if (notificationStatus.isDenied) {
+      if (await Permission.notification.request().isGranted) {
+        debugPrint('Notification permission granted');
+      } else {
+        debugPrint('Notification permission denied');
       }
-    } catch (e) {
-      if (kDebugMode) {
-        print(e.toString());
-      }
+    } else if (notificationStatus.isPermanentlyDenied) {
+      debugPrint('Notification permission permanently denied');
+    } else {
+      debugPrint('Notification permission granted');
     }
   }
 
@@ -48,27 +51,35 @@ class HomeViewModel extends GetxController {
     }
   }
 
-  Future<void> requestNotificationPermission() async {
-    try {
-      final PermissionStatus statusNotify =
-          await Permission.notification.request();
-      if (statusNotify.isGranted) {
-      } else if (statusNotify.isDenied) {
-        if (kDebugMode) {
-          print('Location permission denied');
-        }
-      } else if (statusNotify.isPermanentlyDenied) {
-        if (kDebugMode) {
-          print('Location permission permanently denied');
-        }
-        openAppSettings();
-      }
-    } catch (e) {
-      if (kDebugMode) {
-        print(e.toString());
-      }
-    }
+  String currentZekr = 'سبحان الله';
+  String appGroupId = 'group.homeScreenApp';
+  String iOSWidgetName = 'MyHomeWidget';
+  String androidWidgetName = 'MyHomeWidget';
+  String dataKey = 'currentZekr';
+  final StaticVars staticVars = StaticVars();
+  @override
+  void onInit() {
+    super.onInit();
+    HomeWidget.setAppGroupId(appGroupId);
+    _updateWidget();
   }
+
+  void _updateWidget() async {
+    final randomIndex = DateTime.now().second % staticVars.smallDo3a2.length;
+    currentZekr = staticVars.smallDo3a2[randomIndex];
+    await HomeWidget.saveWidgetData(dataKey, currentZekr);
+    await HomeWidget.saveWidgetData('deepLink', 'quranapp://azkar');
+    await HomeWidget.updateWidget(
+      iOSName: iOSWidgetName,
+      androidName: androidWidgetName,
+    );
+  }
+
+  // void startBackgroundFetch() {
+  //   BackgroundFetch.start().then((status) {
+  //     print('BackgroundFetch started: $status');
+  //   });
+  // }
 
   List<String> titles = [
     'القرآن الكريم',

@@ -1,21 +1,17 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:permission_handler/permission_handler.dart';
+
 import 'package:quran_app/core/service/settings/SettingsServices.dart';
 import 'package:quran_app/core/service/themes/dark_theme.dart';
 import 'package:quran_app/core/service/themes/light_theme.dart';
 import 'package:quran_app/core/util/routes/routes.dart';
 import 'package:quran_app/core/util/binding.dart';
-import 'package:workmanager/workmanager.dart';
+// import 'package:workmanager/workmanager.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Permission.notification.isDenied.then((value) {
-    if (value) {
-      Permission.notification.request();
-    }
-  });
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   await initService();
   runApp(const MyApp());
@@ -40,12 +36,12 @@ class _MyAppState extends State<MyApp> {
         settingsServices.sharedPref!.getBool('isWorkManager');
     if (settingsServices.sharedPref!.getBool('stop_noti') == true) {
       if (isWorkManagerRunning == null || !isWorkManagerRunning) {
-        Workmanager().registerPeriodicTask(
-          '9',
-          'scheduler notifications',
-          existingWorkPolicy: ExistingWorkPolicy.replace,
-          frequency: const Duration(minutes: 10),
-        );
+        // Workmanager().registerPeriodicTask(
+        //   '9',
+        //   'scheduler notifications',
+        //   existingWorkPolicy: ExistingWorkPolicy.replace,
+        //   frequency: const Duration(minutes: 10),
+        // );
         await settingsServices.sharedPref!.setBool('isWorkManager', true);
       }
     }

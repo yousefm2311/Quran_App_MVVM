@@ -12,6 +12,7 @@ class SectionAzkarNotification extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    controller.checkNotificationPermissions();
     return Container(
       padding: const EdgeInsets.all(20.0),
       decoration: BoxDecoration(
@@ -19,7 +20,7 @@ class SectionAzkarNotification extends StatelessWidget {
       child: Row(
         children: [
           CupertinoSwitch(
-            activeColor: AppColors.kPrimaryColor,
+            activeTrackColor: AppColors.kPrimaryColor,
             value: controller.settingsServices.sharedPref!.getBool('enable') ??
                 true,
             onChanged: (value) => switchMethod(controller, value),

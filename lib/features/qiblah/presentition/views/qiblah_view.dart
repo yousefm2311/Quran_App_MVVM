@@ -1,5 +1,8 @@
+
+import 'package:adhan_dart/adhan_dart.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:quran_app/core/util/widgets/custom_appBar.dart';
 import 'package:quran_app/core/util/widgets/custom_back_button.dart';
 import 'package:quran_app/core/util/widgets/my_text.dart';
@@ -9,33 +12,41 @@ import 'package:quran_app/features/qiblah/presentition/views/widget/qiblah_strea
 
 class QiblahView extends StatefulWidget {
   const QiblahView({super.key});
+
   @override
   State<QiblahView> createState() => _QiblahViewState();
 }
 
-Animation<double>? animation;
-AnimationController? animationController;
-double begin = 0.0;
 class _QiblahViewState extends State<QiblahView>
     with SingleTickerProviderStateMixin {
-  QiblahViewModel qiblahViewModel = Get.put(QiblahViewModel());
+  late AnimationController animationController;
+  double begin = 0.0;
+  Future<Position>? getPosition;
+
+  final QiblahViewModel qiblahViewModel = Get.put(QiblahViewModel());
+
   @override
   void initState() {
-    qiblahViewModel.requestLocationPermission(context);
-    animationController = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 500));
-    animation = Tween(begin: 0.0, end: 0.0).animate(animationController!);
     super.initState();
+    qiblahViewModel.requestLocationPermission();
+    animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 500),
+    );
+    getPosition = _determinePosition();
   }
+
   @override
   void dispose() {
-    animationController!.dispose();
+    animationController.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<QiblahViewModel>(builder: (control) {
-      return Scaffold(
+    return GetBuilder<QiblahViewModel>(
+      builder: (controller) {
+        return Scaffold(
           appBar: CustomAppBar(
             loading: const CustomBackButton(),
             title: MyText(
@@ -49,9 +60,56 @@ class _QiblahViewState extends State<QiblahView>
             ),
             centerTitle: true,
           ),
-          body: control.isDone.value
-              ? const QiblahStreamBuilder()
-              : const GoSettingsView());
-    });
+          body: controller.isDone.value
+              ? FutureBuilder<Position>(
+                  future: getPosition,
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      Position positionResult = snapshot.data!;
+                      Coordinates coordinates = Coordinates(
+                        positionResult.latitude,
+                        positionResult.longitude,
+                      );
+                      double qiblaDirection = Qibla.qibla(coordinates);
+                      return QiblahStreamBuilder(
+                        animationController: animationController,
+                        begin: begin,
+                        qiblaDirection: qiblaDirection,
+                      );
+                    }
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  },
+                )
+              : const GoSettingsView(),
+        );
+      },
+    );
   }
+}
+
+Future<Position> _determinePosition() async {
+  bool serviceEnabled;
+  LocationPermission permission;
+
+  serviceEnabled = await Geolocator.isLocationServiceEnabled();
+  if (!serviceEnabled) {
+    return Future.error('Location services are disabled.');
+  }
+
+  permission = await Geolocator.checkPermission();
+  if (permission == LocationPermission.denied) {
+    permission = await Geolocator.requestPermission();
+    if (permission == LocationPermission.denied) {
+      return Future.error('Location permissions are denied');
+    }
+  }
+
+  if (permission == LocationPermission.deniedForever) {
+    return Future.error(
+        'Location permissions are permanently denied, we cannot request permissions.');
+  }
+
+  return await Geolocator.getCurrentPosition();
 }

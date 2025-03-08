@@ -33,6 +33,7 @@ class NotifyHelper {
     );
     await flutterLocalNotificationsPlugin.initialize(initializationSettings,
         onDidReceiveNotificationResponse: onDidReceiveNotificationResponse);
+    requestIOSPermissions();
   }
 
   displayNotification() async {
@@ -49,8 +50,18 @@ class NotifyHelper {
       ticker: 'ticker',
       sound: RawResourceAndroidNotificationSound(soundAzkar_1.split('.').first),
     );
-    NotificationDetails notificationDetails =
-        NotificationDetails(android: androidNotificationDetails);
+    DarwinNotificationDetails iosNotificationDetails =
+        const DarwinNotificationDetails(
+      sound:
+          'azkar_1.wav', // Ensure this sound file is added to your iOS project
+      presentAlert: true,
+      presentBadge: true,
+      presentSound: true,
+    );
+    NotificationDetails notificationDetails = NotificationDetails(
+      android: androidNotificationDetails,
+      iOS: iosNotificationDetails,
+    );
     await flutterLocalNotificationsPlugin.show(
       20,
       'فَذَكِّرْ',
@@ -62,7 +73,7 @@ class NotifyHelper {
 
   void scheduleAzkar({dateTime}) async {
     int rndmIndex = Random().nextInt(StaticVars().smallDo3a2.length - 1);
-    String timeString = '10:00';
+    String timeString = '10:10';
     final timeParts = timeString.split(':');
     final timeOfDay = TimeOfDay(
         hour: int.parse(timeParts[0]), minute: int.parse(timeParts[1]));
@@ -73,8 +84,19 @@ class NotifyHelper {
         importance: Importance.max,
         priority: Priority.high,
         showWhen: false);
-    var platformChannelSpecifics =
-        NotificationDetails(android: androidPlatformChannelSpecifics);
+
+    var iosPlatformChannelSpecifics = const DarwinNotificationDetails(
+      sound:
+          'azkar_2.wav', // Ensure this sound file is added to your iOS project
+      presentAlert: true,
+      presentBadge: true,
+      presentSound: true,
+    );
+    var platformChannelSpecifics = NotificationDetails(
+      android: androidPlatformChannelSpecifics,
+      iOS: iosPlatformChannelSpecifics,
+    );
+
     await flutterLocalNotificationsPlugin.zonedSchedule(
         1,
         'أذكار الصباح',
@@ -107,8 +129,16 @@ class NotifyHelper {
         priority: Priority.high,
         sound: RawResourceAndroidNotificationSound(soundAdhan.split('.').first),
         showWhen: false);
-    var platformChannelSpecifics =
-        NotificationDetails(android: androidPlatformChannelSpecifics);
+    var iosPlatformChannelSpecifics = const DarwinNotificationDetails(
+      sound: 'adhan.wav',
+      presentAlert: true,
+      presentBadge: true,
+      presentSound: true,
+    );
+    var platformChannelSpecifics = NotificationDetails(
+      android: androidPlatformChannelSpecifics,
+      iOS: iosPlatformChannelSpecifics,
+    );
     // الفجر
     await flutterLocalNotificationsPlugin.zonedSchedule(
         2,
@@ -206,6 +236,7 @@ class NotifyHelper {
           sound: true,
         );
   }
+
 
   //   void scheduleDailyTenAMNotification() async {
   //   int rndmIndex = Random().nextInt(StaticVars().smallDo3a2.length - 1);
