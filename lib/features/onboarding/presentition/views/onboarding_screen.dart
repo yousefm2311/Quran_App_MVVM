@@ -1,13 +1,14 @@
 // ignore_for_file: must_be_immutable
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:quran_app/core/service/settings/SettingsServices.dart';
-import 'package:quran_app/core/util/color.dart';
-import 'package:quran_app/features/onboarding/presentition/view_model/onboarding_view_model.dart';
-import 'package:quran_app/features/onboarding/data/models/onboarding_model.dart';
-import 'package:quran_app/features/onboarding/presentition/views/widgets/onboarding_page_view.dart';
-import 'package:quran_app/features/onboarding/presentition/views/widgets/section_bottons_navi_onboarding.dart';
+import 'package:quran_app_android/core/service/settings/SettingsServices.dart';
+import 'package:quran_app_android/core/util/color.dart';
+import 'package:quran_app_android/features/onboarding/data/models/onboarding_model.dart';
+import 'package:quran_app_android/features/onboarding/presentition/view_model/onboarding_view_model.dart';
+import 'package:quran_app_android/features/onboarding/presentition/views/widgets/onboarding_page_view.dart';
+import 'package:quran_app_android/features/onboarding/presentition/views/widgets/section_bottons_navi_onboarding.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
 
 class OnBoardingScreen extends GetWidget<OnBoardingViewModel> {
   OnBoardingScreen({super.key});

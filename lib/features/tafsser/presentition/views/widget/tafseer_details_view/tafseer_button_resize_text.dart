@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:quran_app/core/util/color.dart';
-import 'package:quran_app/core/util/widgets/custom_toast.dart';
-import 'package:quran_app/features/tafsser/presentition/view_model.dart/tafseer_details_view_model.dart';
+import 'package:quran_app_android/core/util/color.dart';
+import 'package:quran_app_android/core/util/widgets/custom_toast.dart';
+import 'package:quran_app_android/features/tafsser/presentition/view_model.dart/tafseer_details_view_model.dart';
 
 class TafseerBottonResizeText extends StatelessWidget {
   const TafseerBottonResizeText({super.key, required this.tafseerDetailsViewModel});

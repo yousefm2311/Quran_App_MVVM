@@ -2,8 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:quran_app/core/util/assets.dart';
-
+import 'package:quran_app_android/core/util/assets.dart';
 class NotifyView extends StatelessWidget {
   const NotifyView({super.key, this.payload});
 

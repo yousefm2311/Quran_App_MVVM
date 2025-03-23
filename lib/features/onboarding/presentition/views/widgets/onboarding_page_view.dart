@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:quran_app/features/onboarding/data/models/onboarding_model.dart';
-import 'package:quran_app/features/onboarding/presentition/view_model/onboarding_view_model.dart';
-import 'package:quran_app/features/onboarding/presentition/views/widgets/onboarding_page_view_item.dart';
+import 'package:quran_app_android/features/onboarding/data/models/onboarding_model.dart';
+import 'package:quran_app_android/features/onboarding/presentition/view_model/onboarding_view_model.dart';
+import 'package:quran_app_android/features/onboarding/presentition/views/widgets/onboarding_page_view_item.dart';
 
 class OnBoardingPageView extends StatelessWidget {
   const OnBoardingPageView({super.key, required this.controller});

@@ -1,8 +1,9 @@
 // ignore_for_file: prefer_typing_uninitialized_variables
 import 'package:flutter/material.dart';
-import 'package:quran_app/features/hadith/presentition/view_model/hadith_view_model.dart';
-import 'package:quran_app/features/hadith/presentition/views/widget/resizer_buttons.dart';
-import 'package:quran_app/features/hadith/presentition/views/widget/section_bottom.dart';
+import 'package:quran_app_android/features/hadith/presentition/view_model/hadith_view_model.dart';
+import 'package:quran_app_android/features/hadith/presentition/views/widget/resizer_buttons.dart';
+import 'package:quran_app_android/features/hadith/presentition/views/widget/section_bottom.dart';
+
 class HadithDetailsViewBodyItems extends StatelessWidget {
   const HadithDetailsViewBodyItems(
       {super.key,

@@ -4,11 +4,11 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:quran_app/core/service/settings/SettingsServices.dart';
-import 'package:quran_app/core/util/app_url.dart';
-import 'package:quran_app/core/util/widgets/custom_toast.dart';
-import 'package:quran_app/features/hadith/data/models/hadith_model.dart';
-import 'package:quran_app/features/hadith/data/models/hadith_model_malek.dart';
+import 'package:quran_app_android/core/service/settings/SettingsServices.dart';
+import 'package:quran_app_android/core/util/app_url.dart';
+import 'package:quran_app_android/core/util/widgets/custom_toast.dart';
+import 'package:quran_app_android/features/hadith/data/models/hadith_model.dart';
+import 'package:quran_app_android/features/hadith/data/models/hadith_model_malek.dart';
 
 class HadithViewModel extends GetxController {
   HadithViewModel() {

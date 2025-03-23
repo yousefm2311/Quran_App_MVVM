@@ -1,6 +1,6 @@
 {
-    "name": "quran_app",
-    "short_name": "quran_app",
+    "name": "quran_app_android",
+    "short_name": "quran_app_android",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

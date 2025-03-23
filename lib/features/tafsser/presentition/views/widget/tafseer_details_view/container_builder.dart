@@ -1,12 +1,13 @@
 // ignore_for_file: prefer_typing_uninitialized_variables
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:quran_app/core/service/settings/SettingsServices.dart';
-import 'package:quran_app/core/util/color.dart';
-import 'package:quran_app/features/tafsser/presentition/view_model.dart/tafseer_details_view_model.dart';
-import 'package:quran_app/features/quran/presentition/view_model/quran_screen_model_details.dart';
-import 'package:quran_app/features/tafsser/presentition/views/widget/tafseer_details_view/inkwell_book_mark_builder.dart';
-import 'package:quran_app/core/util/assets.dart';
+import 'package:quran_app_android/core/service/settings/SettingsServices.dart';
+import 'package:quran_app_android/core/util/assets.dart';
+import 'package:quran_app_android/core/util/color.dart';
+import 'package:quran_app_android/features/quran/presentition/view_model/quran_screen_model_details.dart';
+import 'package:quran_app_android/features/tafsser/presentition/view_model.dart/tafseer_details_view_model.dart';
+import 'package:quran_app_android/features/tafsser/presentition/views/widget/tafseer_details_view/inkwell_book_mark_builder.dart';
+
 import 'package:share_plus/share_plus.dart';
 
 class ContainerBuilderTafseerView extends GetWidget<TafseerDetailsViewModel> {

@@ -4,8 +4,8 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
-import 'package:quran_app/core/service/settings/SettingsServices.dart';
-import 'package:quran_app/features/quran/data/models/details_model.dart';
+import 'package:quran_app_android/core/service/settings/SettingsServices.dart';
+import 'package:quran_app_android/features/quran/data/models/details_model.dart';
 
 class LocalStorageData extends GetxController {
   SettingsServices settings = Get.put(SettingsServices());

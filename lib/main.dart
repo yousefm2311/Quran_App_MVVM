@@ -1,15 +1,12 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-
-import 'package:quran_app/core/service/settings/SettingsServices.dart';
-import 'package:quran_app/core/service/themes/dark_theme.dart';
-import 'package:quran_app/core/service/themes/light_theme.dart';
-import 'package:quran_app/core/util/routes/routes.dart';
-import 'package:quran_app/core/util/binding.dart';
-// import 'package:workmanager/workmanager.dart';
+import 'package:quran_app_android/core/service/settings/SettingsServices.dart';
+import 'package:quran_app_android/core/service/themes/dark_theme.dart';
+import 'package:quran_app_android/core/service/themes/light_theme.dart';
+import 'package:quran_app_android/core/util/binding.dart';
+import 'package:quran_app_android/core/util/routes/routes.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);

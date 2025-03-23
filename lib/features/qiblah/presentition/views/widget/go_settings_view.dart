@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:quran_app/core/util/color.dart';
-import 'package:quran_app/core/util/widgets/my_text.dart';
+import 'package:quran_app_android/core/util/color.dart';
+import 'package:quran_app_android/core/util/widgets/my_text.dart';
 
 class GoSettingsView extends StatelessWidget {
   const GoSettingsView({super.key});

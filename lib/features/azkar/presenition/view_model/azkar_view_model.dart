@@ -2,9 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:quran_app/core/util/app_url.dart';
-import 'package:quran_app/features/azkar/data/models/azkar_model.dart';
-
+import 'package:quran_app_android/core/util/app_url.dart';
+import 'package:quran_app_android/features/azkar/data/models/azkar_model.dart';
 class AzkarViewModel extends GetxController {
   AzkarViewModel() {
     readJson();

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:quran_app/core/util/color.dart';
-import 'package:quran_app/core/util/widgets/custom_toast.dart';
-import 'package:quran_app/features/azkar/presenition/view_model/azkar_view_model.dart';
+import 'package:quran_app_android/core/util/color.dart';
+import 'package:quran_app_android/core/util/widgets/custom_toast.dart';
+import 'package:quran_app_android/features/azkar/presenition/view_model/azkar_view_model.dart';
 
 class ResizeButtons extends StatelessWidget {
   const ResizeButtons({super.key, required this.controller});

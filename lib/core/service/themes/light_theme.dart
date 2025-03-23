@@ -1,7 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import 'package:quran_app/core/util/color.dart';
+import 'package:quran_app_android/core/util/color.dart';
 
 class LightTheme {
   ThemeData customLightTheme = ThemeData.light().copyWith(

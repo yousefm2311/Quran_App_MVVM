@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
-import 'package:quran_app/core/util/widgets/my_text.dart';
+import 'package:quran_app_android/core/util/widgets/my_text.dart';
 
 class ClipPathWidget extends StatelessWidget {
   const ClipPathWidget({

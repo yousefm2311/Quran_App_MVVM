@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:quran_app/core/service/settings/SettingsServices.dart';
-import 'package:quran_app/core/util/routes/routes.dart';
+import 'package:quran_app_android/core/service/settings/SettingsServices.dart';
+import 'package:quran_app_android/core/util/routes/routes.dart';
 
 class AuthMiddleWare extends GetMiddleware {
   SettingsServices settingsServices = Get.put(SettingsServices());

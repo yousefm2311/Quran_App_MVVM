@@ -3,8 +3,8 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
-import 'package:quran_app/core/service/settings/SettingsServices.dart';
-import 'package:quran_app/features/adhan/data/models/adhan_model.dart';
+import 'package:quran_app_android/core/service/settings/SettingsServices.dart';
+import 'package:quran_app_android/features/adhan/data/models/adhan_model.dart';
 
 class LocalStorageAdhanData extends GetxController {
   SettingsServices settings = Get.put(SettingsServices());

@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:quran_app/core/service/settings/SettingsServices.dart';
-import 'package:quran_app/features/quran/presentition/view_model/quran_screen_model_details.dart';
-import 'package:quran_app/features/quran/presentition/views/widget/quran_details_list_view_item.dart';
+import 'package:quran_app_android/core/service/settings/SettingsServices.dart';
+import 'package:quran_app_android/features/quran/presentition/view_model/quran_screen_model_details.dart';
+import 'package:quran_app_android/features/quran/presentition/views/widget/quran_details_list_view_item.dart';
 
 class QuranDetailsListView extends StatelessWidget {
   const QuranDetailsListView({super.key, required this.sharedPref, required this.controller});

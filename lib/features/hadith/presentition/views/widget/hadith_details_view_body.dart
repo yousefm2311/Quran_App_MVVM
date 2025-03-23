@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:quran_app/core/service/settings/SettingsServices.dart';
-import 'package:quran_app/features/hadith/presentition/view_model/hadith_view_model.dart';
-import 'package:quran_app/features/hadith/presentition/views/widget/hadith_details_view_body_items.dart';
+import 'package:quran_app_android/core/service/settings/SettingsServices.dart';
+import 'package:quran_app_android/features/hadith/presentition/view_model/hadith_view_model.dart';
+import 'package:quran_app_android/features/hadith/presentition/views/widget/hadith_details_view_body_items.dart';
 
 class HadithDetailsViewBody extends StatelessWidget {
   const HadithDetailsViewBody(

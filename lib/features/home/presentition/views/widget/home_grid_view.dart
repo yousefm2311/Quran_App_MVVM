@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quran_app/features/home/presentition/view_model/home_view_model.dart';
-import 'package:quran_app/features/home/presentition/views/widget/home_grid_view_items.dart';
+import 'package:quran_app_android/features/home/presentition/view_model/home_view_model.dart';
+import 'package:quran_app_android/features/home/presentition/views/widget/home_grid_view_items.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_grid_view.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_tile.dart';
 

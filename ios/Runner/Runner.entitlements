@@ -4,7 +4,7 @@
 <dict>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.homeScreenApp</string>
+		<string>group.com.homeScreenApp</string>
 	</array>
 </dict>
 </plist>

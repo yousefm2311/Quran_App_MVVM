@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quran_app/core/util/color.dart';
-import 'package:quran_app/features/nameOfAllah/data/models/Names_Of_Allah_model.dart';
+import 'package:quran_app_android/core/util/color.dart';
+import 'package:quran_app_android/features/nameOfAllah/data/models/Names_Of_Allah_model.dart';
 
 class NameOfAllahListViewItems extends StatelessWidget {
   const NameOfAllahListViewItems({super.key, required this.model});

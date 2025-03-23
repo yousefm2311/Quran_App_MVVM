@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:quran_app/core/service/settings/notifications_services.dart';
-import 'package:quran_app/core/util/color.dart';
-import 'package:quran_app/core/util/widgets/custom_toast.dart';
-import 'package:quran_app/features/settings/presentition/view_model/settins_view_model.dart';
+import 'package:quran_app_android/core/service/settings/notifications_services.dart';
+import 'package:quran_app_android/core/util/color.dart';
+import 'package:quran_app_android/core/util/widgets/custom_toast.dart';
+import 'package:quran_app_android/features/settings/presentition/view_model/settins_view_model.dart';
 
 class SectionAzkarNotification extends StatelessWidget {
   const SectionAzkarNotification({super.key, required this.controller});

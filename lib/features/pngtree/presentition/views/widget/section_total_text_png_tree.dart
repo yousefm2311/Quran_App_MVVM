@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quran_app/core/util/widgets/my_text.dart';
-import 'package:quran_app/features/pngtree/presentition/view_model/pngTree_view_model.dart';
+import 'package:quran_app_android/core/util/widgets/my_text.dart';
+import 'package:quran_app_android/features/pngtree/presentition/view_model/pngTree_view_model.dart';
 
 class SectionTotalText extends StatelessWidget {
   const SectionTotalText({super.key, required this.controller});

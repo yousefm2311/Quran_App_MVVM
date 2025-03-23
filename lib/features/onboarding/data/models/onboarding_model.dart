@@ -1,4 +1,5 @@
-import 'package:quran_app/core/util/assets.dart';
+
+import 'package:quran_app_android/core/util/assets.dart';
 
 class OnBoardingModel {
   String? image, title, description;

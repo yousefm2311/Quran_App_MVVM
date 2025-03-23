@@ -1,9 +1,9 @@
 // ignore_for_file: file_names
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:quran_app/core/service/network/adhan_dio_helper.dart';
-import 'package:quran_app/core/service/network/dio_helper.dart';
-import 'package:quran_app/core/service/settings/notifications_services.dart';
+import 'package:quran_app_android/core/service/network/adhan_dio_helper.dart';
+import 'package:quran_app_android/core/service/network/dio_helper.dart';
+import 'package:quran_app_android/core/service/settings/notifications_services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 // import 'package:workmanager/workmanager.dart';

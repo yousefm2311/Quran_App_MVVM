@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:quran_app/features/nameOfAllah/presentition/view_model/Names_Of_Allah_view_model.dart';
-import 'package:quran_app/features/nameOfAllah/presentition/views/widgets/name_of_allah_list_view_items.dart';
+import 'package:quran_app_android/features/nameOfAllah/presentition/view_model/Names_Of_Allah_view_model.dart';
+import 'package:quran_app_android/features/nameOfAllah/presentition/views/widgets/name_of_allah_list_view_items.dart';
 
 class NameOfAllahListView extends StatelessWidget {
   const NameOfAllahListView({super.key, required this.contoller});

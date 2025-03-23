@@ -5,11 +5,10 @@ import 'package:flutter/foundation.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:quran_app/core/service/database/database_helper.dart';
-import 'package:quran_app/core/service/settings/SettingsServices.dart';
-import 'package:quran_app/core/service/settings/notifications_services.dart';
-import 'package:quran_app/features/quran/presentition/view_model/quran_screen_model_details.dart';
-
+import 'package:quran_app_android/core/service/database/database_helper.dart';
+import 'package:quran_app_android/core/service/settings/SettingsServices.dart';
+import 'package:quran_app_android/core/service/settings/notifications_services.dart';
+import 'package:quran_app_android/features/quran/presentition/view_model/quran_screen_model_details.dart';
 class AdhanViewModel extends GetxController {
   double? latitude, longitude;
   RxBool isLoading = false.obs;

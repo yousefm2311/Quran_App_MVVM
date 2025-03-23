@@ -13,7 +13,8 @@ struct Provider: TimelineProvider {
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         // استرجاع البيانات من AppGroup
-        let userDefaults = UserDefaults(suiteName: "group.homeScreenApp")
+        let userDefaults = UserDefaults(suiteName: "group.com.homeScreenApp")
+        
         let currentZekr = userDefaults?.string(forKey: "currentZekr") ?? "سبحان الله"
 
         let entry = SimpleEntry(date: Date(), zekr: currentZekr)

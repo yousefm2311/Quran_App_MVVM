@@ -2,10 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:quran_app/core/util/widgets/custom_appBar.dart';
-import 'package:quran_app/core/util/widgets/custom_back_button.dart';
-import 'package:quran_app/features/pngtree/presentition/view_model/pngTree_view_model.dart';
-import 'package:quran_app/features/pngtree/presentition/views/widget/png_tree_view_body.dart';
+import 'package:quran_app_android/core/util/widgets/custom_appBar.dart';
+import 'package:quran_app_android/core/util/widgets/custom_back_button.dart';
+import 'package:quran_app_android/features/pngtree/presentition/view_model/pngTree_view_model.dart';
+import 'package:quran_app_android/features/pngtree/presentition/views/widget/png_tree_view_body.dart';
 
 class PngTreeView extends GetWidget<PngTreeViewModel> {
   PngTreeView({super.key});

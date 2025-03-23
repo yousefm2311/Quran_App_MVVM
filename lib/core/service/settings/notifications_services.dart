@@ -3,8 +3,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
-import 'package:quran_app/core/util/constant/static_vars.dart';
-import 'package:quran_app/core/util/routes/routes.dart';
+import 'package:quran_app_android/core/util/constant/static_vars.dart';
+import 'package:quran_app_android/core/util/routes/routes.dart';
 import 'package:timezone/data/latest_all.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
 

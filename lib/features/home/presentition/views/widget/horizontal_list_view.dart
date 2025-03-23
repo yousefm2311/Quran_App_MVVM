@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quran_app/features/home/presentition/view_model/home_view_model.dart';
-import 'package:quran_app/features/home/presentition/views/widget/horizontal_list_view_items.dart';
+import 'package:quran_app_android/features/home/presentition/view_model/home_view_model.dart';
+import 'package:quran_app_android/features/home/presentition/views/widget/horizontal_list_view_items.dart';
 
 class HorizontalListView extends StatelessWidget {
   const HorizontalListView({super.key, required this.controller});

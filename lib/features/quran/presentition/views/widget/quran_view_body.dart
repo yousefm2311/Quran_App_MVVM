@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
-import 'package:quran_app/core/service/settings/SettingsServices.dart';
-import 'package:quran_app/features/quran/presentition/view_model/quran_screen_model_details.dart';
-import 'package:quran_app/features/quran/presentition/view_model/quran_view_model.dart';
-import 'package:quran_app/features/quran/presentition/views/widget/quran_view_body_items.dart';
+import 'package:quran_app_android/core/service/settings/SettingsServices.dart';
+import 'package:quran_app_android/features/quran/presentition/view_model/quran_screen_model_details.dart';
+import 'package:quran_app_android/features/quran/presentition/view_model/quran_view_model.dart';
+import 'package:quran_app_android/features/quran/presentition/views/widget/quran_view_body_items.dart';
 
 class QuranViewBody extends StatelessWidget {
   const QuranViewBody(

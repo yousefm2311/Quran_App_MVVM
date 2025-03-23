@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:quran_app/features/adhan/presentition/view_model/adhan_view_model.dart';
-import 'package:quran_app/features/adhan/presentition/views/widget/adhan_view_data.dart';
+import 'package:quran_app_android/features/adhan/presentition/view_model/adhan_view_model.dart';
+import 'package:quran_app_android/features/adhan/presentition/views/widget/adhan_view_data.dart';
 
 class AdhanBodyListView extends StatelessWidget {
   const AdhanBodyListView({super.key, required this.controller});
@@ -16,7 +16,7 @@ class AdhanBodyListView extends StatelessWidget {
               time: formateDate(controller.prayerTimes.fajr),
               title: 'الفجر',
               isCurrent: _isCurrentTime(
-                  controller.prayerTimes.fajr, controller.prayerTimes.sunrise)),
+                  controller.prayerTimes.fajr, controller.prayerTimes.dhuhr)),
           PrayerTimeItem(
               time: formateDate(controller.prayerTimes.dhuhr),
               title: 'الظهر',

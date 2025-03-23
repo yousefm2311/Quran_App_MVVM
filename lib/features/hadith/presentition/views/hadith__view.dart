@@ -1,11 +1,11 @@
 // ignore_for_file: file_names, must_be_immutable
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:quran_app/core/util/widgets/custom_appBar.dart';
-import 'package:quran_app/core/util/widgets/custom_back_button.dart';
-import 'package:quran_app/core/util/widgets/my_text.dart';
-import 'package:quran_app/features/hadith/presentition/view_model/hadith_view_model.dart';
-import 'package:quran_app/features/hadith/presentition/views/widget/hadith_view_body.dart';
+import 'package:quran_app_android/core/util/widgets/custom_appBar.dart';
+import 'package:quran_app_android/core/util/widgets/custom_back_button.dart';
+import 'package:quran_app_android/core/util/widgets/my_text.dart';
+import 'package:quran_app_android/features/hadith/presentition/view_model/hadith_view_model.dart';
+import 'package:quran_app_android/features/hadith/presentition/views/widget/hadith_view_body.dart';
 
 class SectionHadithView extends GetWidget<HadithViewModel> {
   const SectionHadithView({super.key});

@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_typing_uninitialized_variables
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:quran_app/features/home/presentition/views/widget/clip_path.dart';
+import 'package:quran_app_android/features/home/presentition/views/widget/clip_path.dart';
 
 class HomeGridViewItems extends StatelessWidget {
   const HomeGridViewItems({

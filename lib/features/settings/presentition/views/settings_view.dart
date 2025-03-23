@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
-import 'package:quran_app/core/util/assets.dart';
-import 'package:quran_app/core/util/widgets/custom_appBar.dart';
-import 'package:quran_app/core/util/widgets/custom_back_button.dart';
-import 'package:quran_app/features/settings/presentition/view_model/settins_view_model.dart';
-import 'package:quran_app/features/settings/presentition/views/widget/section_azkar_notification.dart';
-import 'package:quran_app/features/settings/presentition/views/widget/section_stop_notification.dart';
+import 'package:quran_app_android/core/util/assets.dart';
+import 'package:quran_app_android/core/util/widgets/custom_appBar.dart';
+import 'package:quran_app_android/core/util/widgets/custom_back_button.dart';
+import 'package:quran_app_android/features/settings/presentition/view_model/settins_view_model.dart';
+import 'package:quran_app_android/features/settings/presentition/views/widget/section_azkar_notification.dart';
+import 'package:quran_app_android/features/settings/presentition/views/widget/section_stop_notification.dart';
 
 class SettingsView extends StatelessWidget {
   const SettingsView({super.key});

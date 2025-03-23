@@ -6,11 +6,12 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:quran_app/core/service/settings/SettingsServices.dart';
-import 'package:quran_app/features/quran/data/models/details_model.dart';
-import 'package:quran_app/core/service/database/local_storage_data.dart';
-import 'package:quran_app/core/util/app_url.dart';
 
+
+import 'package:quran_app_android/core/service/settings/SettingsServices.dart';
+import 'package:quran_app_android/features/quran/data/models/details_model.dart';
+import 'package:quran_app_android/core/service/database/local_storage_data.dart';
+import 'package:quran_app_android/core/util/app_url.dart';
 class QuranScreenViewModel extends GetxController {
   QuranScreenViewModel() {
     getCurrentMarkQuran();

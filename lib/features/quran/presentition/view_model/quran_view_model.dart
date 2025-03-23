@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:quran_app/core/util/app_url.dart';
-import 'package:quran_app/features/quran/data/models/model.dart';
+import 'package:quran_app_android/core/util/app_url.dart';
+import 'package:quran_app_android/features/quran/data/models/model.dart';
 
 class QuranViewModel extends GetxController {
   QuranViewModel() {

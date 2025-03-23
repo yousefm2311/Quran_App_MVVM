@@ -2,18 +2,18 @@
 
 import 'dart:async';
 import 'dart:convert';
-import 'package:audioplayers/audioplayers.dart';
+// import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:quran_app/core/service/settings/SettingsServices.dart';
-import 'package:quran_app/features/quran/data/models/details_model.dart';
-import 'package:quran_app/features/quran/data/models/quran_audio_model.dart';
-import 'package:quran_app/features/tafsser/data/models/tafaseerModel.dart';
-import 'package:quran_app/core/service/database/local_storage_data.dart';
-import 'package:quran_app/core/util/app_url.dart';
-import 'package:quran_app/core/util/constant/constant.dart';
+import 'package:quran_app_android/core/service/database/local_storage_data.dart';
+import 'package:quran_app_android/core/service/settings/SettingsServices.dart';
+import 'package:quran_app_android/core/util/app_url.dart';
+import 'package:quran_app_android/core/util/constant/constant.dart';
+import 'package:quran_app_android/features/quran/data/models/details_model.dart';
+import 'package:quran_app_android/features/quran/data/models/quran_audio_model.dart';
+import 'package:quran_app_android/features/tafsser/data/models/tafaseerModel.dart';
 
 class TafseerDetailsViewModel extends GetxController {
   RxBool isLoading = false.obs;
@@ -47,7 +47,7 @@ class TafseerDetailsViewModel extends GetxController {
 
   RxBool isPlay = false.obs;
   RxBool isLoadingg = false.obs;
-  final audioPlayer = AudioPlayer();
+  // final audioPlayer = AudioPlayer();
   Duration duration = Duration.zero;
   Duration position = Duration.zero;
   QuranAudioModel? quranAudioModel;
@@ -97,7 +97,7 @@ class TafseerDetailsViewModel extends GetxController {
   VersesModel? get ayahMod => _ayahModel;
   VersesModel? _ayahModel;
   void getCurrentMark() async {
-    await localStorageData.getUser.then((value) {
+    await localStorageData.getUser.then(( value) {
       _ayahModel = value;
       update();
     }).catchError((error) {
@@ -136,7 +136,7 @@ class TafseerDetailsViewModel extends GetxController {
 
   @override
   void dispose() {
-    audioPlayer.dispose();
+    // audioPlayer.dispose();
     scrollController.dispose();
     super.dispose();
   }

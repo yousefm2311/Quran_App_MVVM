@@ -1,12 +1,11 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:home_widget/home_widget.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:quran_app/core/service/settings/SettingsServices.dart';
-import 'package:quran_app/core/util/assets.dart';
-import 'package:quran_app/core/util/constant/static_vars.dart';
-import 'package:quran_app/core/util/routes/routes.dart';
+import 'package:quran_app_android/core/service/settings/SettingsServices.dart';
+import 'package:quran_app_android/core/util/assets.dart';
+import 'package:quran_app_android/core/util/constant/static_vars.dart';
+import 'package:quran_app_android/core/util/routes/routes.dart';
 
 class HomeViewModel extends GetxController {
   HomeViewModel() {
@@ -52,7 +51,7 @@ class HomeViewModel extends GetxController {
   }
 
   String currentZekr = 'سبحان الله';
-  String appGroupId = 'group.homeScreenApp';
+  String appGroupId = 'group.com.homeScreenApp';
   String iOSWidgetName = 'MyHomeWidget';
   String androidWidgetName = 'MyHomeWidget';
   String dataKey = 'currentZekr';

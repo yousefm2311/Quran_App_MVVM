@@ -1,15 +1,14 @@
 // ignore_for_file: must_be_immutable, dead_code, deprecated_member_use
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:quran_app/core/service/settings/SettingsServices.dart';
-import 'package:quran_app/core/util/color.dart';
-import 'package:quran_app/core/util/widgets/custom_appBar.dart';
-import 'package:quran_app/core/util/widgets/custom_back_button.dart';
-import 'package:quran_app/core/util/widgets/my_text.dart';
-import 'package:quran_app/features/quran/presentition/views/widget/quran_app_bar_buttons.dart';
-import 'package:quran_app/features/quran/presentition/view_model/quran_screen_model_details.dart';
-import 'package:quran_app/features/quran/presentition/views/widget/quran_details_list_view.dart';
-
+import 'package:quran_app_android/core/service/settings/SettingsServices.dart';
+import 'package:quran_app_android/core/util/color.dart';
+import 'package:quran_app_android/core/util/widgets/custom_appBar.dart';
+import 'package:quran_app_android/core/util/widgets/custom_back_button.dart';
+import 'package:quran_app_android/core/util/widgets/my_text.dart';
+import 'package:quran_app_android/features/quran/presentition/view_model/quran_screen_model_details.dart';
+import 'package:quran_app_android/features/quran/presentition/views/widget/quran_app_bar_buttons.dart';
+import 'package:quran_app_android/features/quran/presentition/views/widget/quran_details_list_view.dart';
 
 class DetailsScreen extends StatelessWidget {
   DetailsScreen({super.key});

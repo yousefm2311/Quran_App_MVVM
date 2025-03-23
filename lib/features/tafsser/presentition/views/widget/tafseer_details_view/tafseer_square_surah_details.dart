@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:quran_app/core/service/settings/SettingsServices.dart';
-import 'package:quran_app/core/util/color.dart';
-import 'package:quran_app/core/util/widgets/my_text.dart';
-import 'package:quran_app/features/quran/presentition/view_model/quran_screen_model_details.dart';
-import 'package:quran_app/core/util/constant/constant.dart';
-import 'package:quran_app/core/util/assets.dart';
+import 'package:quran_app_android/core/service/settings/SettingsServices.dart';
+import 'package:quran_app_android/core/util/assets.dart';
+import 'package:quran_app_android/core/util/color.dart';
+import 'package:quran_app_android/core/util/constant/constant.dart';
+import 'package:quran_app_android/core/util/widgets/my_text.dart';
+import 'package:quran_app_android/features/quran/presentition/view_model/quran_screen_model_details.dart';
 
 class TafseetSquareSurahDetails extends StatelessWidget {
   const TafseetSquareSurahDetails(

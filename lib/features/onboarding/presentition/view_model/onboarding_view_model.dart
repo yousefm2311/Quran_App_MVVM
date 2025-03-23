@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:quran_app/features/onboarding/data/models/onboarding_model.dart';
+import 'package:quran_app_android/features/onboarding/data/models/onboarding_model.dart';
 
 class OnBoardingViewModel extends GetxController {
   var onboardingController = PageController();

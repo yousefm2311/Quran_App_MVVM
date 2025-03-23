@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:quran_app/core/service/settings/SettingsServices.dart';
-import 'package:quran_app/core/util/assets.dart';
-import 'package:quran_app/core/util/color.dart';
-import 'package:quran_app/core/util/widgets/my_text.dart';
-import 'package:quran_app/features/azkar/data/models/azkar_model.dart';
-import 'package:quran_app/core/util/routes/routes.dart';
+import 'package:quran_app_android/core/service/settings/SettingsServices.dart';
+import 'package:quran_app_android/core/util/assets.dart';
+import 'package:quran_app_android/core/util/color.dart';
+import 'package:quran_app_android/core/util/routes/routes.dart';
+import 'package:quran_app_android/core/util/widgets/my_text.dart';
+import 'package:quran_app_android/features/azkar/data/models/azkar_model.dart';
 
 class AzkarListView extends StatelessWidget {
   const AzkarListView({

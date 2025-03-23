@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:quran_app/core/util/icon_broken.dart';
+import 'package:quran_app_android/core/util/icon_broken.dart';
 
 class CustomBackButton extends StatelessWidget {
   const CustomBackButton({super.key});

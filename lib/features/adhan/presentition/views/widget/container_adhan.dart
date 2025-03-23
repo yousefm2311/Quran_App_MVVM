@@ -2,8 +2,7 @@ import 'dart:async';
 
 import 'package:adhan/adhan.dart';
 import 'package:flutter/material.dart';
-import 'package:quran_app/core/util/icon_broken.dart';
-
+import 'package:quran_app_android/core/util/icon_broken.dart';
 class AdhanContainer extends StatefulWidget {
   const AdhanContainer({Key? key, required this.prayerTimes}) : super(key: key);
   final PrayerTimes prayerTimes;

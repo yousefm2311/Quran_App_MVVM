@@ -1,9 +1,9 @@
 // ignore_for_file: must_be_immutable
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:quran_app/core/service/settings/SettingsServices.dart';
-import 'package:quran_app/features/hadith/presentition/view_model/hadith_view_model.dart';
-import 'package:quran_app/features/hadith/presentition/views/widget/hadith_view_body_items.dart';
+import 'package:quran_app_android/core/service/settings/SettingsServices.dart';
+import 'package:quran_app_android/features/hadith/presentition/view_model/hadith_view_model.dart';
+import 'package:quran_app_android/features/hadith/presentition/views/widget/hadith_view_body_items.dart';
 
 class HadithViewBody extends StatelessWidget {
   HadithViewBody({super.key, required this.controller});

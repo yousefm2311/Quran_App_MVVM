@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:quran_app/features/adhan/presentition/view_model/adhan_view_model.dart';
-import 'package:quran_app/features/adhan/presentition/views/widget/adhan_body_list_view.dart';
-import 'package:quran_app/features/adhan/presentition/views/widget/container_adhan.dart';
-import 'package:quran_app/core/util/icon_broken.dart';
-
+import 'package:quran_app_android/core/util/icon_broken.dart';
+import 'package:quran_app_android/features/adhan/presentition/view_model/adhan_view_model.dart';
+import 'package:quran_app_android/features/adhan/presentition/views/widget/adhan_body_list_view.dart';
+import 'package:quran_app_android/features/adhan/presentition/views/widget/container_adhan.dart';
 class AdhanBodyView extends StatelessWidget {
   const AdhanBodyView({super.key});
   @override

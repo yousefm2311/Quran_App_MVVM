@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:quran_app/core/service/settings/SettingsServices.dart';
-import 'package:quran_app/features/home/presentition/view_model/home_view_model.dart';
-import 'package:quran_app/features/home/presentition/views/widget/bottom_sheet/button_bottom_sheet.dart';
-import 'package:quran_app/features/home/presentition/views/widget/bottom_sheet/text_from_field_bottom_sheet.dart';
+import 'package:quran_app_android/core/service/settings/SettingsServices.dart';
+import 'package:quran_app_android/features/home/presentition/view_model/home_view_model.dart';
+import 'package:quran_app_android/features/home/presentition/views/widget/bottom_sheet/button_bottom_sheet.dart';
+import 'package:quran_app_android/features/home/presentition/views/widget/bottom_sheet/text_from_field_bottom_sheet.dart';
 
 class BottomsheetBody extends StatelessWidget {
   const BottomsheetBody(

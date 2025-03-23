@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quran_app/core/util/color.dart';
+import 'package:quran_app_android/core/util/color.dart';
 import 'package:readmore/readmore.dart';
 
 class ReadMore extends StatelessWidget {

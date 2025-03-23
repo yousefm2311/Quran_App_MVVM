@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_typing_uninitialized_variables
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:quran_app/core/util/color.dart';
-import 'package:quran_app/core/util/widgets/custom_toast.dart';
+import 'package:quran_app_android/core/util/color.dart';
+import 'package:quran_app_android/core/util/widgets/custom_toast.dart';
 import 'package:share_plus/share_plus.dart';
 
 class SectionButtom extends StatelessWidget {

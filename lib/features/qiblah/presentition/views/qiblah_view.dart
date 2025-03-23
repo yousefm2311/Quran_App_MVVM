@@ -3,12 +3,12 @@ import 'package:adhan_dart/adhan_dart.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:quran_app/core/util/widgets/custom_appBar.dart';
-import 'package:quran_app/core/util/widgets/custom_back_button.dart';
-import 'package:quran_app/core/util/widgets/my_text.dart';
-import 'package:quran_app/features/qiblah/presentition/view_model/qiblah_view_model.dart';
-import 'package:quran_app/features/qiblah/presentition/views/widget/go_settings_view.dart';
-import 'package:quran_app/features/qiblah/presentition/views/widget/qiblah_stream_builder.dart';
+import 'package:quran_app_android/core/util/widgets/custom_appBar.dart';
+import 'package:quran_app_android/core/util/widgets/custom_back_button.dart';
+import 'package:quran_app_android/core/util/widgets/my_text.dart';
+import 'package:quran_app_android/features/qiblah/presentition/view_model/qiblah_view_model.dart';
+import 'package:quran_app_android/features/qiblah/presentition/views/widget/go_settings_view.dart';
+import 'package:quran_app_android/features/qiblah/presentition/views/widget/qiblah_stream_builder.dart';
 
 class QiblahView extends StatefulWidget {
   const QiblahView({super.key});

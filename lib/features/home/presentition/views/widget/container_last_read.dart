@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hijri/hijri_calendar.dart';
-import 'package:quran_app/core/service/settings/SettingsServices.dart';
-import 'package:quran_app/core/util/assets.dart';
-import 'package:quran_app/core/util/color.dart';
-import 'package:quran_app/core/util/icon_broken.dart';
-import 'package:quran_app/core/util/routes/routes.dart';
-import 'package:quran_app/core/util/widgets/my_text.dart';
-import 'package:quran_app/features/home/presentition/view_model/home_view_model.dart';
+import 'package:quran_app_android/core/service/settings/SettingsServices.dart';
+import 'package:quran_app_android/core/util/assets.dart';
+import 'package:quran_app_android/core/util/color.dart';
+import 'package:quran_app_android/core/util/icon_broken.dart';
+import 'package:quran_app_android/core/util/routes/routes.dart';
+import 'package:quran_app_android/core/util/widgets/my_text.dart';
+import 'package:quran_app_android/features/home/presentition/view_model/home_view_model.dart';
 
 class ContainerLastReadView extends StatelessWidget {
   const ContainerLastReadView({super.key, required this.settingsServices});

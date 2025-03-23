@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:quran_app/core/util/color.dart';
-import 'package:quran_app/core/util/widgets/custom_appBar.dart';
-import 'package:quran_app/core/util/widgets/custom_back_button.dart';
-import 'package:quran_app/core/util/widgets/my_text.dart';
-import 'package:quran_app/features/adhan/presentition/view_model/adhan_view_model.dart';
-import 'package:quran_app/features/adhan/presentition/views/widget/adhan_body_view.dart';
-
+import 'package:quran_app_android/core/util/color.dart';
+import 'package:quran_app_android/core/util/widgets/custom_appBar.dart';
+import 'package:quran_app_android/core/util/widgets/custom_back_button.dart';
+import 'package:quran_app_android/core/util/widgets/my_text.dart';
+import 'package:quran_app_android/features/adhan/presentition/view_model/adhan_view_model.dart';
+import 'package:quran_app_android/features/adhan/presentition/views/widget/adhan_body_view.dart';
 class AdhanView extends GetWidget<AdhanViewModel> {
   const AdhanView({super.key});
 

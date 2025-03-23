@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
-import 'package:quran_app/features/pngtree/presentition/view_model/pngTree_view_model.dart';
-import 'package:quran_app/features/pngtree/presentition/views/widget/circular_step_progress_indicator.dart';
-import 'package:quran_app/features/pngtree/presentition/views/widget/png_tree_buttons.dart';
-import 'package:quran_app/features/pngtree/presentition/views/widget/section_total_text_png_tree.dart';
+import 'package:quran_app_android/features/pngtree/presentition/view_model/pngTree_view_model.dart';
+import 'package:quran_app_android/features/pngtree/presentition/views/widget/circular_step_progress_indicator.dart';
+import 'package:quran_app_android/features/pngtree/presentition/views/widget/png_tree_buttons.dart';
+import 'package:quran_app_android/features/pngtree/presentition/views/widget/section_total_text_png_tree.dart';
 
 class PngTreeViewBody extends StatelessWidget {
   const PngTreeViewBody({super.key});

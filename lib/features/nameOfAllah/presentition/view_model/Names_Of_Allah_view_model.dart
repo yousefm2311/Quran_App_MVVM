@@ -5,8 +5,8 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:quran_app/core/util/app_url.dart';
-import 'package:quran_app/features/nameOfAllah/data/models/Names_Of_Allah_model.dart';
+import 'package:quran_app_android/core/util/app_url.dart';
+import 'package:quran_app_android/features/nameOfAllah/data/models/Names_Of_Allah_model.dart';
 
 class NamesOfAllahViewModel extends GetxController {
   NamesOfAllahViewModel() {

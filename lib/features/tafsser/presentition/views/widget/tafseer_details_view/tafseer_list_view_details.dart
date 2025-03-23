@@ -1,13 +1,12 @@
 // ignore_for_file: prefer_typing_uninitialized_variables
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:quran_app/core/service/settings/SettingsServices.dart';
-import 'package:quran_app/features/tafsser/presentition/view_model.dart/tafseer_details_view_model.dart';
-import 'package:quran_app/features/quran/presentition/view_model/quran_screen_model_details.dart';
-import 'package:quran_app/features/tafsser/presentition/views/widget/tafseer_details_view/container_builder.dart';
-import 'package:quran_app/features/tafsser/presentition/views/widget/tafseer_details_view/read_more_text.dart';
-
-import 'package:quran_app/core/util/constant/constant.dart';
+import 'package:quran_app_android/core/service/settings/SettingsServices.dart';
+import 'package:quran_app_android/core/util/constant/constant.dart';
+import 'package:quran_app_android/features/quran/presentition/view_model/quran_screen_model_details.dart';
+import 'package:quran_app_android/features/tafsser/presentition/view_model.dart/tafseer_details_view_model.dart';
+import 'package:quran_app_android/features/tafsser/presentition/views/widget/tafseer_details_view/container_builder.dart';
+import 'package:quran_app_android/features/tafsser/presentition/views/widget/tafseer_details_view/read_more_text.dart';
 
 class TafseerListViewDetails extends StatelessWidget {
   const TafseerListViewDetails({

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
-import 'package:quran_app/core/service/settings/SettingsServices.dart';
-import 'package:quran_app/features/azkar/presenition/view_model/azkar_view_model.dart';
-import 'package:quran_app/features/azkar/presenition/views/widget/azkar_list_view_body_details_items.dart';
+import 'package:quran_app_android/core/service/settings/SettingsServices.dart';
+import 'package:quran_app_android/features/azkar/presenition/view_model/azkar_view_model.dart';
+import 'package:quran_app_android/features/azkar/presenition/views/widget/azkar_list_view_body_details_items.dart';
 
 class AzkarListViewBodyDetails extends StatelessWidget {
   const AzkarListViewBodyDetails(

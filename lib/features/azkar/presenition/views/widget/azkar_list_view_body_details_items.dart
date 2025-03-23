@@ -1,8 +1,9 @@
 // ignore_for_file: prefer_typing_uninitialized_variables
 import 'package:flutter/material.dart';
-import 'package:quran_app/features/azkar/presenition/view_model/azkar_view_model.dart';
-import 'package:quran_app/features/azkar/presenition/views/widget/resize_buttons.dart';
-import 'package:quran_app/features/azkar/presenition/views/widget/section_bottom_view.dart';
+import 'package:quran_app_android/features/azkar/presenition/view_model/azkar_view_model.dart';
+import 'package:quran_app_android/features/azkar/presenition/views/widget/resize_buttons.dart';
+import 'package:quran_app_android/features/azkar/presenition/views/widget/section_bottom_view.dart';
+
 class AzkarListViewBodyDetailsItems extends StatelessWidget {
   const AzkarListViewBodyDetailsItems(
       {super.key, required this.model, required this.controller});
