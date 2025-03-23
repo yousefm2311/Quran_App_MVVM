@@ -26,17 +26,19 @@ class HomeViewModel extends GetxController {
       await openAppSettings();
     }
     var notificationStatus = await Permission.notification.status;
-    if (notificationStatus.isDenied) {
-      if (await Permission.notification.request().isGranted) {
-        debugPrint('Notification permission granted');
-      } else {
-        debugPrint('Notification permission denied');
-      }
+    if (!notificationStatus.isGranted) {
+      notificationStatus = await Permission.notification.request();
+    }
+    if (notificationStatus.isGranted) {
+      debugPrint('Notification permission granted');
+    } else if (notificationStatus.isDenied) {
+      debugPrint('Notification permission denied');
     } else if (notificationStatus.isPermanentlyDenied) {
       debugPrint('Notification permission permanently denied');
-    } else {
+    }else{
       debugPrint('Notification permission granted');
     }
+  
   }
 
   SettingsServices settingsServices = Get.put(SettingsServices());
