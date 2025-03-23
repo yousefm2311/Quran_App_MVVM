@@ -1,3 +1,5 @@
+// ignore_for_file: use_super_parameters
+
 import 'dart:async';
 
 import 'package:adhan/adhan.dart';

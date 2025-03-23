@@ -12,6 +12,7 @@ class HomeViewModel extends GetxController {
     requestPermissions();
     getLastRead();
   }
+
   Future<void> requestPermissions() async {
     var status = await Permission.location.status;
     if (!status.isGranted) {
@@ -25,6 +26,7 @@ class HomeViewModel extends GetxController {
       debugPrint('Location permission permanently denied');
       await openAppSettings();
     }
+
     var notificationStatus = await Permission.notification.status;
     if (!notificationStatus.isGranted) {
       notificationStatus = await Permission.notification.request();
@@ -35,17 +37,17 @@ class HomeViewModel extends GetxController {
       debugPrint('Notification permission denied');
     } else if (notificationStatus.isPermanentlyDenied) {
       debugPrint('Notification permission permanently denied');
-    }else{
+    } else {
       debugPrint('Notification permission granted');
     }
-  
   }
 
-  SettingsServices settingsServices = Get.put(SettingsServices());
+  SettingsServices settingsServices = Get.find<SettingsServices>();
 
   RxString lastRead = ''.obs;
   void getLastRead() async {
-    if (settingsServices.sharedPref!.getString('lastRead') != null) {
+    if (settingsServices.sharedPref != null &&
+        settingsServices.sharedPref!.getString('lastRead') != null) {
       lastRead.value =
           settingsServices.sharedPref!.getString('lastRead').toString();
       update();
@@ -58,6 +60,7 @@ class HomeViewModel extends GetxController {
   String androidWidgetName = 'MyHomeWidget';
   String dataKey = 'currentZekr';
   final StaticVars staticVars = StaticVars();
+
   @override
   void onInit() {
     super.onInit();
@@ -75,12 +78,6 @@ class HomeViewModel extends GetxController {
       androidName: androidWidgetName,
     );
   }
-
-  // void startBackgroundFetch() {
-  //   BackgroundFetch.start().then((status) {
-  //     print('BackgroundFetch started: $status');
-  //   });
-  // }
 
   List<String> titles = [
     'القرآن الكريم',
@@ -103,12 +100,7 @@ class HomeViewModel extends GetxController {
     AppRoutes.tafsser,
   ];
 
-  List<String> titleListView = [
-    'أذكار',
-    'مواقيت الصلاة',
-    'القبلة',
-    'المسبحة',
-  ];
+  List<String> titleListView = ['أذكار', 'مواقيت الصلاة', 'القبلة', 'المسبحة'];
 
   List<String> imageListView = [
     AssetsData.azkar,
@@ -116,6 +108,7 @@ class HomeViewModel extends GetxController {
     AssetsData.qiblahImage,
     AssetsData.pngTree,
   ];
+
   List<String> routesListView = [
     AppRoutes.azkar,
     AppRoutes.adhan,
@@ -124,6 +117,5 @@ class HomeViewModel extends GetxController {
   ];
 
   TextEditingController timeController = TextEditingController();
-
   var formKey = GlobalKey<FormState>();
 }

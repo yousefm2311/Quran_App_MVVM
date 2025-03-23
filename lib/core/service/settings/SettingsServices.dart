@@ -13,16 +13,6 @@ void callbackDispatcher() {
   NotifyHelper().initializeNotification();
 }
 
-// void backgroundFetchHeadlessTask(HeadlessTask task, dynamic staticVars) async {
-//   final randomIndex = DateTime.now().second % staticVars.smallDo3a2.length;
-//   final currentZekr = staticVars.smallDo3a2[randomIndex];
-//   await HomeWidget.saveWidgetData('currentZekr', currentZekr);
-//   await HomeWidget.updateWidget(
-//     iOSName: 'MyHomeWidget',
-//     androidName: 'MyHomeWidget',
-//   );
-//   BackgroundFetch.finish(task.taskId);
-// }
 
 class SettingsServices extends GetxService {
   SharedPreferences? sharedPref;
@@ -35,15 +25,6 @@ class SettingsServices extends GetxService {
     NotifyHelper().scheduleAzkar();
     sharedPref!.setBool('enable', true);
     sharedPref!.setBool('stop_noti', true);
-
-    // BackgroundFetch.configure(
-    //   BackgroundFetchConfig(
-    //     minimumFetchInterval: 15, // كل 15 دقيقة (أقل قيمة مسموحة)
-    //     stopOnTerminate: false,
-    //     enableHeadless: true,
-    //   ),
-    //   backgroundFetchHeadlessTask,
-    // );
     return this;
   }
 }
